@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    private Colors color { get; set; }
+
+    private Colors _color;
+
 
     // Use this for initialization
     void Start() {
@@ -14,5 +16,15 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
+    }
+
+    public Colors Color
+    {
+        set
+        {
+            _color = value;
+            //set different textures for color here
+            Debug.Log(this+", "+_color);
+        }
     }
 }
