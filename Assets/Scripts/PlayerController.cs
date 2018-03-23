@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    private Colors color { get; set; }
+    public Colors Color { get; set; }
+	public bool IsStunned { get; set; }
 
     // Use this for initialization
     void Start() {
