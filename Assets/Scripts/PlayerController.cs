@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    public Colors Color { get; set; }
 	public bool IsStunned { get; set; }
 
-    // Use this for initialization
+    private Colors _color;
+
     void Start() {
 
     }
@@ -15,5 +15,19 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
+    }
+
+    public Colors Color
+    {
+		get
+		{
+			return _color;
+		}
+        set
+        {
+            _color = value;
+            //set different textures for color here
+            Debug.Log(this+", "+_color);
+        }
     }
 }

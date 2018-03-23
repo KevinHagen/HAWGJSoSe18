@@ -13,15 +13,18 @@ public class LevelGenerator : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        startPositionsDictionary = new Dictionary<Transform, bool>();
+        playerColors = new Dictionary<Colors, bool>();
         for (int i=0;i<players.Length;i++)
         {
-            startPositionsDictionary[startPositions[i]] = false;
+            startPositionsDictionary.Add(startPositions[i], false);
         }
-        playerColors[Colors.BLUE] = false;
-        playerColors[Colors.GREEN] = false;
-        playerColors[Colors.RED] = false;
-        playerColors[Colors.YELLOW] = false;
+        playerColors.Add(Colors.BLUE, false);
+        playerColors.Add(Colors.GREEN, false);
+        playerColors.Add(Colors.RED, false);
+        playerColors.Add(Colors.YELLOW, false);
 
+        SetStartPositions();
     }
 	
 	// Update is called once per frame
@@ -34,15 +37,25 @@ public class LevelGenerator : MonoBehaviour {
         for(int i=0;i<players.Length;i++)
         {
             _currentPlayer = players[i].GetComponent<PlayerController>();
-            int randPos;
+            int randPos,randColor;
+            //get random start position and set Player to this transform.position
             do
             {
                 randPos = Random.Range(0, 4);
 
             }while(startPositionsDictionary[startPositions[randPos]]);
-
             startPositionsDictionary[startPositions[randPos]] = true;
             players[i].transform.position = startPositions[randPos].position;
+            
+            //get random Color for player
+            do
+            {
+                randColor = Random.Range(0, 4);
+
+            } while (playerColors[(Colors)randColor]);
+            playerColors[(Colors)randColor] = true;
+            _currentPlayer.Color = (Colors)randColor;
+
         }
     }
 }
