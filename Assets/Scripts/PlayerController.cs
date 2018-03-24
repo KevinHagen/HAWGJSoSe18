@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour {
     private Colors _color;
 	private bool needsTwoColors;
 
+	private string GREEN_BUTTON = "Green";
+	public int playerNumber;
+
 	private void Awake()
 	{
 		PlayerUI = GetComponentInChildren<PlayerUI>();
@@ -19,6 +22,8 @@ public class PlayerController : MonoBehaviour {
 
     void Update()
 	{
+		if (Input.GetButtonDown(GREEN_BUTTON + playerNumber)) Debug.Log("Spieler " + playerNumber + " hat " + GREEN_BUTTON + " gedrückt.");
+
 		PlayerUI.UpdateUI(HasKey, CurrentPowerUp != null);
 		if (IsStunned) return;
 
