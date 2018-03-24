@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-
+    
 	public bool IsStunned { get; set; }
 	public AbstractPowerUp CurrentPowerUp { get; set; }
 	public PlayerUI PlayerUI { get; private set; }
