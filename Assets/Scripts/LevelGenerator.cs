@@ -34,7 +34,7 @@ public class LevelGenerator : MonoBehaviour {
         playerColors = new Dictionary<Colors, bool>();
         boxPositionsDictionary = new Dictionary<Transform, bool>();
         quarters = new Dictionary<Transform, Colors>();
-        for (int i=0;i<players.Length;i++)
+        for (int i=0;i<startPositions.Length;i++)
         {
             startPositionsDictionary.Add(startPositions[i], false);
             quarters.Add(startPositions[i],Colors.BLACK);
