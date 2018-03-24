@@ -7,14 +7,22 @@ public class DoorColorSwitcher : AbstractMultipleTargetPowerUp
     public DoorColorSwitcher(int holdTime)
     {
         this.HoldTime = holdTime;
+		TargetColor = Colors.IDLE;
+		SecondTargetColor = Colors.IDLE;
     }
 
     public override void ExecutePowerUp()
 	{
-		DoorController targetDoor = DetermineDoorTarget(TargetColor);
-		DoorController secondTargetDoor = DetermineDoorTarget(SecondTargetColor);
-		tempColor = targetDoor.Color;
-		targetDoor.Color = secondTargetDoor.Color;
-		secondTargetDoor.Color = tempColor;
+		List<DoorController> targetDoor = DetermineDoorTargets(TargetColor);
+		List<DoorController> secondTargetDoor = DetermineDoorTargets(SecondTargetColor);
+
+		foreach(DoorController door in targetDoor)
+		{
+			door.ChangeColor(SecondTargetColor);
+		}
+		foreach(DoorController door in secondTargetDoor)
+		{
+			door.ChangeColor(TargetColor);
+		}
 	}
 }

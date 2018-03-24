@@ -35,16 +35,18 @@ public abstract class AbstractPowerUp
 		return null;
 	}
 
-	protected DoorController DetermineDoorTarget(Colors colorToCheck)
+	protected List<DoorController> DetermineDoorTargets(Colors colorToCheck)
 	{
+		List<DoorController> doorsWithTargetColor = new List<DoorController>();
+
 		for (int i = 0; i < DoorManager.INSTANCE.Doors.Length; i++)
 		{
 			if (DoorManager.INSTANCE.Doors[i].Color == colorToCheck)
 			{
-				return DoorManager.INSTANCE.Doors[i];
+				doorsWithTargetColor.Add(DoorManager.INSTANCE.Doors[i]);
 			}
 		}
 
-		return null;
+		return doorsWithTargetColor;
 	}
 }

@@ -9,7 +9,9 @@ public class PlayerColorSwitcher : AbstractMultipleTargetPowerUp
     public PlayerColorSwitcher(int holdTime)
     {
         this.HoldTime = holdTime;
-    }
+		TargetColor = Colors.IDLE;
+		SecondTargetColor = Colors.IDLE;
+	}
 
     public override void ExecutePowerUp()
 	{
