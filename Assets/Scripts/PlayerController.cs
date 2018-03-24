@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
 
     private Colors _color;
 	private bool needsTwoColors;
+	private int holdTimeLeft;
 
 	private string GREEN_BUTTON = "Green";
 	private string BLUE_BUTTON = "Blue";
@@ -23,7 +24,19 @@ public class PlayerController : MonoBehaviour {
 	private string ACTIVATE_BUTTON = "Activate";
 	private string HORIZONTAL_AXIS = "Horizontal";
 	private string VERTICAL_AXIS = "Vertical";
-	
+
+
+	public IEnumerator HoldTimer(int holdTime)
+	{
+		holdTimeLeft = holdTime;
+		while (holdTimeLeft > 0)
+		{
+			yield return new WaitForSeconds(1f);
+			holdTimeLeft--;
+			PlayerUI.holdTimerText.text = "" + holdTimeLeft;
+		}
+	}
+
 	private void Awake()
 	{
 		PlayerUI = GetComponentInChildren<PlayerUI>();
