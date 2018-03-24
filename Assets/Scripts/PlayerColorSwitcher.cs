@@ -5,11 +5,16 @@ using UnityEngine;
 public class PlayerColorSwitcher : AbstractMultipleTargetPowerUp
 {
 	private PlayerController secondPlayer;
-	
-	public override void ExecutePowerUp()
+
+    public PlayerColorSwitcher(int holdTime)
+    {
+        this.HoldTime = holdTime;
+    }
+
+    public override void ExecutePowerUp()
 	{
-		StopAllCoroutines();
 		player = DetermineTarget(TargetColor);
+		player.StopAllCoroutines();
 		secondPlayer = DetermineTarget(SecondTargetColor);
 
 		tempColor = player.Color;

@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class DoorColorSwitcher : AbstractPowerUp
 {
-	public override void ExecutePowerUp()
+    public DoorColorSwitcher(int holdTime)
+    {
+        this.HoldTime = holdTime;
+    }
+
+    public override void ExecutePowerUp()
 	{
 		
 	}

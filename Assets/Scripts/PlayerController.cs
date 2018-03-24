@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
 	public PlayerUI PlayerUI { get; private set; }
     public bool HasKey { get; set; }
 	public bool activatePressed;
+    public Material[] playerMaterials;
 
 	public PlayerMovement playerMovement;
 	public int playerNumber;
@@ -63,6 +64,8 @@ public class PlayerController : MonoBehaviour {
 		needsTwoColors = CurrentPowerUp.GetType() == typeof(AbstractMultipleTargetPowerUp);
 		Colors colorPressed = CheckForColorInput();
 
+        if (colorPressed == Colors.IDLE) return;
+
 		if (needsTwoColors)
 		{
 			AbstractMultipleTargetPowerUp multiTargetPowerUp = (AbstractMultipleTargetPowerUp)CurrentPowerUp;
@@ -71,7 +74,8 @@ public class PlayerController : MonoBehaviour {
 			else
 			{
 				multiTargetPowerUp.SecondTargetColor = colorPressed;
-				multiTargetPowerUp.ExecutePowerUp();
+                if (colorPressed == Colors.IDLE) return;
+                multiTargetPowerUp.ExecutePowerUp();
 			}
 		}
 		else
@@ -129,8 +133,10 @@ public class PlayerController : MonoBehaviour {
             _color = value;
             gameObject.layer = LayerMask.NameToLayer("Default");
             //set different textures for color here
+
             if (_color != Colors.BLACK || _color != Colors.RAINBOW || _color != Colors.IDLE)
 			{
+                GetComponent<MeshRenderer>().material = playerMaterials[(int)_color];
                 switch (_color)
                 {
                     case Colors.BLUE:

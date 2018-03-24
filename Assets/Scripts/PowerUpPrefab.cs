@@ -19,23 +19,23 @@ public class PowerUpPrefab : MonoBehaviour {
             switch(index)
             {
                 case Box.Index.DOOR_COLOR_SWITCHER:
-                    powerUp = new DoorColorSwitcher();
+                    powerUp = new DoorColorSwitcher(7);
                     break;
                 case Box.Index.PLAYER_COLOR_SWITCHER:
-                    powerUp = new PlayerColorSwitcher();
+                    powerUp = new PlayerColorSwitcher(7);
                     break;
                 case Box.Index.RAINBOW_COLORS:
-                    powerUp = new RainbowColors();
+                    powerUp = new RainbowColors(5,4);
                     break;
                 case Box.Index.THUNDER:
-                    powerUp = new Thunder(4);
+                    powerUp = new Thunder(5,4);
                     break;
             }
 
 			PlayerController player = other.gameObject.GetComponent<PlayerController>();
 
 			if (powerUp != null)
-				StartCoroutine(player.HoldTimer(powerUp.holdTime));
+				player.StartCoroutine(player.HoldTimer(powerUp.HoldTime));
 
             player.CurrentPowerUp = powerUp;
             Destroy(gameObject);

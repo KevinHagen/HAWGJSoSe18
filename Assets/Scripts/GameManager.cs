@@ -6,7 +6,9 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager INSTANCE;
 
-	public PlayerController[] Players { get; private set; }
+    public PlayerController[] players;
+    public LevelGenerator levelGenerator;
+    public DoorManager doorManager;
 
 	private void Awake()
 	{

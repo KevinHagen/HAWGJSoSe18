@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class AbstractPowerUp : MonoBehaviour
+public abstract class AbstractPowerUp
 {
 	public Colors TargetColor { get; set; }
 
 	public GameObject powerUpPrefab;
-	public int holdTime;
+	public int HoldTime { get; protected set; }
 
 	protected PlayerController player;
 	protected Colors tempColor;
@@ -15,18 +15,18 @@ public abstract class AbstractPowerUp : MonoBehaviour
 
 	public void PunishPlayer()
 	{
-		new Thunder(2).ExecutePowerUp();
+		new Thunder(5,2).ExecutePowerUp();
 	}
 
 	public abstract void ExecutePowerUp();
 
 	protected PlayerController DetermineTarget(Colors colorToCheck)
 	{
-		for (int i = 0; i < GameManager.INSTANCE.Players.Length; i++)
+		for (int i = 0; i < GameManager.INSTANCE.players.Length; i++)
 		{
-			if (GameManager.INSTANCE.Players[i].Color == colorToCheck)
+			if (GameManager.INSTANCE.players[i].Color == colorToCheck)
 			{
-				return GameManager.INSTANCE.Players[i];
+				return GameManager.INSTANCE.players[i];
 			}
 		}
 

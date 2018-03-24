@@ -491,6 +491,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activatePressed: 0
+  playerMaterials:
+  - {fileID: 2100000, guid: 6d74fd98155310e42a81df0f01e51ce0, type: 2}
+  - {fileID: 2100000, guid: 6a00e1afedbea5e419f892a392c8062f, type: 2}
+  - {fileID: 2100000, guid: 24b70f71438c2784eaef76dcc6d19b3f, type: 2}
+  - {fileID: 2100000, guid: 7ee3fb70eea91694ba3a751181695b7f, type: 2}
   playerMovement: {fileID: 114326367339887796}
   playerNumber: 1
 --- !u!114 &114854587606806798

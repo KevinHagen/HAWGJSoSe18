@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class RainbowColors : AbstractSingleTargetPowerUp
 {
+    public RainbowColors(int holdTime,float powerUpDuration)
+    {
+        this.HoldTime = holdTime;
+        this.powerUpDuration = powerUpDuration;
+    }
+
 	public override void ExecutePowerUp()
 	{
-		StopAllCoroutines();
 		player = DetermineTarget(TargetColor);
+		player.StopAllCoroutines();
 		tempColor = player.Color;
 		player.Color = Colors.RAINBOW;
-		StartCoroutine(WaitForPlayerReset());
+		player.StartCoroutine(WaitForPlayerReset());
 		player.CurrentPowerUp = null;
 	}
 }
