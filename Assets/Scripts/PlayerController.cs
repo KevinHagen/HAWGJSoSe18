@@ -63,7 +63,8 @@ public class PlayerController : MonoBehaviour {
         //check if player already collected a Power up; if not, stop here
 		if (CurrentPowerUp == null) return;
 
-		needsTwoColors = CurrentPowerUp.GetType() == typeof(AbstractMultipleTargetPowerUp);     //check how many inputs the Power Up needs
+		needsTwoColors = CurrentPowerUp is AbstractMultipleTargetPowerUp;     //check how many inputs the Power Up needs
+		Debug.Log(CurrentPowerUp.GetType());
 		Colors colorPressed = CheckForColorInput();                 //check if the Player pressed a collor on the controller, returns IDLE if not
         if (colorPressed == Colors.IDLE) return;    //no button pressed, stop here
 
@@ -78,7 +79,6 @@ public class PlayerController : MonoBehaviour {
             else                                                //target color is already set
             {
                 multiTargetPowerUp.SecondTargetColor = colorPressed;        //second target color gets set to colorPressed
-                //if (colorPressed == Colors.IDLE) return;                  //already checked earlier!!
                 multiTargetPowerUp.ExecutePowerUp();
                 CurrentPowerUp = null;
             }
