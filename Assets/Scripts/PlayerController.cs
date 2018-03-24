@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour {
 			holdTimeLeft--;
 			PlayerUI.holdTimerText.text = "" + holdTimeLeft;
 		}
+		CurrentPowerUp.PunishPlayer();
 	}
 
 	private void Awake()
@@ -89,10 +90,6 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate()
 	{
         playerMovement.Move( Input.GetAxis(HORIZONTAL_AXIS + playerNumber), Input.GetAxis(VERTICAL_AXIS + playerNumber));
-        //if (Input.GetAxisRaw(HORIZONTAL_AXIS + playerNumber) != 0 || Input.GetAxisRaw(VERTICAL_AXIS + playerNumber) != 0)
-        //{
-        //    playerMovement.Move();
-        //}
 	}
 
 

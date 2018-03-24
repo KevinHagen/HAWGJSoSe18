@@ -14,6 +14,7 @@ public class RainbowColors : AbstractSingleTargetPowerUp
 	{
 		player = DetermineTarget(TargetColor);
 		player.StopAllCoroutines();
+		player.PlayerUI.powerupHolder.SetActive(false);
 		tempColor = player.Color;
 		player.Color = Colors.RAINBOW;
 		player.StartCoroutine(WaitForPlayerReset());
