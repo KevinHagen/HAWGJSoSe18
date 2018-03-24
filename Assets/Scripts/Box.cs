@@ -34,7 +34,7 @@ public class Box : MonoBehaviour {
         {
             if(other.gameObject.GetComponent<PlayerController>().activatePressed)
             {
-                GameObject _spawnObject;
+                GameObject _spawnObject=null;
                 switch(index)
                 {
                     case Index.KEY_BLUE:
@@ -53,12 +53,15 @@ public class Box : MonoBehaviour {
                         _spawnObject = keyPrefab;
                         TransferData(_spawnObject, index, Colors.YELLOW);
                         break;
+                    case Index.EMPTY:
+                        break;
                     default: _spawnObject = powerUpPrefab;
                         _spawnObject.GetComponent<PowerUpPrefab>().index = index;
                         other.GetComponent<PlayerController>().PlayerUI.SetPowerUpIcon(index);
                         break;
                 }
-
+                
+                if (_spawnObject == null) return;
                 Instantiate(_spawnObject, transform.position, Quaternion.Euler(0, 0, 0));
                 LevelGenerator.levelGenerator.PositionBox(gameObject);  //set box to new place
                 if(index!=Index.EMPTY)  //box contained a key or power up
