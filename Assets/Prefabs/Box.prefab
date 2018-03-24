@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7166b0737998e364eb302673aaff79ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 0
+  index: 8
   quarter: 0
   powerUpPrefab: {fileID: 1246793160484458, guid: 079cffb88c638854a9e7fafc6fcf0186,
     type: 2}
