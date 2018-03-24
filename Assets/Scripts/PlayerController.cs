@@ -49,41 +49,42 @@ public class PlayerController : MonoBehaviour {
 
     void Update()
 	{
-        if(Input.GetButtonDown(BLUE_BUTTON+playerNumber))
-        {
-            Debug.Log(Input.GetJoystickNames());
-            Debug.Log("blue button pressed");
-        }
-		PlayerUI.UpdateUI(HasKey, CurrentPowerUp != null);
+        //update Player UI
+		PlayerUI.UpdateUI(HasKey, CurrentPowerUp != null); 
+        //check if player got stunned by Thunder
 		if (IsStunned) return;
 
+        //detect shoulder-buttons and set bool to be used in Box.cs
 		activatePressed = false;
 		if (Input.GetAxisRaw(ACTIVATE_BUTTON + playerNumber) == 1 || Input.GetAxisRaw(ACTIVATE_BUTTON + playerNumber) == -1)
 		{
 			activatePressed = true;
 		} 
 
+        //check if player already collected a Power up; if not, stop here
 		if (CurrentPowerUp == null) return;
 
-		needsTwoColors = CurrentPowerUp.GetType() == typeof(AbstractMultipleTargetPowerUp);
-		Colors colorPressed = CheckForColorInput();
+		needsTwoColors = CurrentPowerUp.GetType() == typeof(AbstractMultipleTargetPowerUp);     //check how many inputs the Power Up needs
+		Colors colorPressed = CheckForColorInput();                 //check if the Player pressed a collor on the controller, returns IDLE if not
+        if (colorPressed == Colors.IDLE) return;    //no button pressed, stop here
 
-        if (colorPressed == Colors.IDLE) return;
 
-		if (needsTwoColors)
+		if (needsTwoColors) //power Up needs two inputs/colors
 		{
 			AbstractMultipleTargetPowerUp multiTargetPowerUp = (AbstractMultipleTargetPowerUp)CurrentPowerUp;
-			if (CurrentPowerUp.TargetColor != Colors.IDLE)
-				multiTargetPowerUp.TargetColor = colorPressed;
-			else
-			{
-				multiTargetPowerUp.SecondTargetColor = colorPressed;
-                if (colorPressed == Colors.IDLE) return;
+            if (multiTargetPowerUp.TargetColor == Colors.IDLE)  //target color isn't set yes, and gets the value of pressedColor
+            {
+                multiTargetPowerUp.TargetColor = colorPressed;
+            }
+            else                                                //target color is already set
+            {
+                multiTargetPowerUp.SecondTargetColor = colorPressed;        //second target color gets set to colorPressed
+                //if (colorPressed == Colors.IDLE) return;                  //already checked earlier!!
                 multiTargetPowerUp.ExecutePowerUp();
-				CurrentPowerUp = null;
-			}
+                CurrentPowerUp = null;
+            }
 		}
-		else
+		else        //power Up needs only one input/color
 		{
 			CurrentPowerUp.TargetColor = colorPressed;
 			CurrentPowerUp.ExecutePowerUp();
