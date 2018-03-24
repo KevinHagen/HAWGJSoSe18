@@ -16,16 +16,12 @@ public class Box : MonoBehaviour {
         KEY_BLUE,
         EMPTY
     }
-
+    
     public Index index;
     public Colors quarter;
     public GameObject powerUpPrefab;
     public GameObject keyPrefab;
-
-	// Use this for initialization
-	void Awake () {
-        index = Index.EMPTY;
-	}
+    
     
 
     private void OnTriggerStay(Collider other)
