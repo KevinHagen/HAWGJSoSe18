@@ -12,11 +12,6 @@ public class DoorController : MonoBehaviour {
 	void Start () {
         meshRend = GetComponent<MeshRenderer>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void ChangeColor (Colors color)
     {

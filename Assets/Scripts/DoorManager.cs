@@ -5,15 +5,16 @@ using UnityEngine;
 public class DoorManager : MonoBehaviour
 {
     public static DoorManager INSTANCE;
+
     GameObject[] doors;
     Dictionary<GameObject, bool> doorColorDictionary;
+    public Dictionary<Colors, Material> doorMaterialDictionary;
     public Material redDoor;
     public Material greenDoor;
     public Material blueDoor;
     public Material yellowDoor;
-    public Dictionary<Colors, Material> doorMaterialDictionary;
     
-
+    
     // Use this for initialization
     void Start()
     {
@@ -27,6 +28,7 @@ public class DoorManager : MonoBehaviour
         doorMaterialDictionary.Add(Colors.RED, redDoor);
         doorMaterialDictionary.Add(Colors.YELLOW, yellowDoor);
         doorMaterialDictionary.Add(Colors.GREEN, greenDoor);
+        
         GenerateDoors();
     }
 
