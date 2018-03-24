@@ -17,7 +17,16 @@ public class GameManager : MonoBehaviour {
 		else
 			INSTANCE = this;
 
+		InitPlayers();
 		doorManager.Init();
 		levelGenerator.Init(players);
+	}
+
+	private void InitPlayers()
+	{
+		foreach(PlayerController pc in players)
+		{
+			pc.Init();
+		}
 	}
 }
