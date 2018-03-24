@@ -9,7 +9,7 @@ public class Key : MonoBehaviour {
     public Texture[] textures;
     public float  maxDistanceToWall=3;
     public float minFlyRange=3, maxFlyRange=5;
-    public float flightHight = 5,flightSpeed=0.1f;
+    public float flightHight = 5,flightSpeed=0.5f;
     
 
     private void OnTriggerEnter(Collider other)
