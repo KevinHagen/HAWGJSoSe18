@@ -12,7 +12,6 @@ public abstract class AbstractPowerUp : MonoBehaviour
 	protected PlayerController player;
 	protected Colors tempColor;
 	protected float powerUpDuration;
-	protected int holdTimeLeft;
 
 	public void PunishPlayer()
 	{
@@ -32,16 +31,5 @@ public abstract class AbstractPowerUp : MonoBehaviour
 		}
 
 		return null;
-	}
-
-	public IEnumerator HoldTimer()
-	{
-		holdTimeLeft = holdTime;
-		while(holdTimeLeft > 0)
-		{
-			yield return new WaitForSeconds(1f);
-			holdTimeLeft--;
-			player.PlayerUI.holdTimerText.text = "" + holdTimeLeft;
-		}
 	}
 }
