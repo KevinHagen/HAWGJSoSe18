@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Thunder : AbstractPowerUp
+public class Thunder : AbstractSingleTargetPowerUp
 {
 	public Thunder(int _powerUpDuration)
 	{
@@ -30,8 +30,8 @@ public class Thunder : AbstractPowerUp
 
 	protected override void ResetPlayer()
 	{
+		base.ResetPlayer();
 		player.IsStunned = false;
-		player.Color = tempColor;
 	}
 
 	private void DropKey()
