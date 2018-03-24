@@ -70,8 +70,7 @@ public class LevelGenerator : MonoBehaviour {
         for(int i=0;i<players.Length;i++)
         {
             _currentPlayer = players[i].GetComponent<PlayerController>();
-			_currentPlayer.Init();
-            int randPos,randColor;
+			int randPos,randColor;
             //get random start position and set Player to this transform.position
             do
             {

@@ -61,8 +61,8 @@ public class Box : MonoBehaviour {
                         break;
                 }
                 
-                if (_spawnObject == null) return;
-                Instantiate(_spawnObject, transform.position, Quaternion.Euler(0, 0, 0));
+                if (_spawnObject != null)
+					Instantiate(_spawnObject, transform.position, Quaternion.Euler(0, 0, 0));
                 LevelGenerator.levelGenerator.PositionBox(gameObject);  //set box to new place
                 if(index!=Index.EMPTY)  //box contained a key or power up
                 {
