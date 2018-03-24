@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class AbstractPowerUp : MonoBehaviour
 {
-	public Colors TargetColor { get; private set; }
+	public Colors TargetColor { get; set; }
 
 	public GameObject powerUpPrefab;
 	public int holdTime;
@@ -12,6 +12,7 @@ public abstract class AbstractPowerUp : MonoBehaviour
 	protected PlayerController player;
 	protected Colors tempColor;
 	protected float powerUpDuration;
+	protected int holdTimeLeft;
 
 	public void PunishPlayer()
 	{
@@ -33,14 +34,14 @@ public abstract class AbstractPowerUp : MonoBehaviour
 		return null;
 	}
 
-	protected IEnumerator WaitForPlayerReset()
+	public IEnumerator HoldTimer()
 	{
-		yield return new WaitForSeconds(powerUpDuration);
-		ResetPlayer();
-	}
-
-	protected virtual void ResetPlayer()
-	{
-		player.Color = tempColor;
+		holdTimeLeft = holdTime;
+		while(holdTimeLeft > 0)
+		{
+			yield return new WaitForSeconds(1f);
+			holdTimeLeft--;
+			player.PlayerUI.holdTimerText.text = "" + holdTimeLeft;
+		}
 	}
 }
