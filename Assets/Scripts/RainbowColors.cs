@@ -13,7 +13,6 @@ public class RainbowColors : AbstractSingleTargetPowerUp
 	public override void ExecutePowerUp()
 	{
 		player = DeterminePlayerTarget(TargetColor);
-		player.StopAllCoroutines();
 		player.PlayerUI.powerupHolder.SetActive(false);
 		tempColor = player.Color;
 		player.Color = Colors.RAINBOW;

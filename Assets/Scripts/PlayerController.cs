@@ -79,6 +79,7 @@ public class PlayerController : MonoBehaviour {
             else                                                //target color is already set
             {
                 multiTargetPowerUp.SecondTargetColor = colorPressed;        //second target color gets set to colorPressed
+				StopAllCoroutines();
                 multiTargetPowerUp.ExecutePowerUp();
                 CurrentPowerUp = null;
             }
@@ -86,6 +87,7 @@ public class PlayerController : MonoBehaviour {
 		else        //power Up needs only one input/color
 		{
 			CurrentPowerUp.TargetColor = colorPressed;
+			StopAllCoroutines();
 			CurrentPowerUp.ExecutePowerUp();
 			CurrentPowerUp = null;
 		}
