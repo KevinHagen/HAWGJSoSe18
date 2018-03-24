@@ -142,7 +142,7 @@ public class LevelGenerator : MonoBehaviour {
 
         } while (boxPositionsDictionary[boxPositions[randBox]]);
         boxPositionsDictionary[boxPositions[randBox]] = true;   //place box in a new space and set this as occupied
-        boxPositionsDictionary[box.transform] = false;          //set the old box position as free
+        boxPositionsDictionary[FindInBoxPositions(box.transform)] = false;          //set the old box position as free
         box.transform.position = boxPositions[randBox].position;    //move the box to its new position
         
 
@@ -161,6 +161,18 @@ public class LevelGenerator : MonoBehaviour {
         box.GetComponent<Box>().quarter = color;
     }
 
+    private Transform FindInBoxPositions(Transform box)
+    {
+        for(int i=0;i<boxPositions.Length;i++)
+        {
+            if(boxPositions[i].position==box.transform.position)
+            {
+                return boxPositions[i];
+            }
+        }
+        return null;
+    }
+
     //finds and fills an empty Box with given index
     public void FillEmptyBox(Box.Index index)
     {
@@ -174,7 +186,6 @@ public class LevelGenerator : MonoBehaviour {
 
         } while (_currentBox.index != Box.Index.EMPTY || (ConflictWithKey(_currentBox,index) && tryCounter>=0));
         _currentBox.index = index;
-        Debug.Log(boxes[boxNum] + ", " + index);
     }
 
     public void ReplacePowerUp(Box.Index keyIndex)
@@ -191,7 +202,6 @@ public class LevelGenerator : MonoBehaviour {
                     _currentBox.index == Box.Index.KEY_RED || _currentBox.index == Box.Index.KEY_YELLOW || 
                     (!ConflictWithKey(_currentBox, keyIndex) && tryCounter>=0));
         _currentBox.index = keyIndex;
-        Debug.Log(boxes[boxNum] + ", " + keyIndex);
     }
 
     public bool ConflictWithKey(Box box,Box.Index index)
@@ -215,4 +225,6 @@ public class LevelGenerator : MonoBehaviour {
 
         return false;
     }
+
+    
 }
