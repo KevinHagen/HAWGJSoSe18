@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour {
 		PlayerUI.holdTimerText.text = "" + holdTimeLeft;
 		CurrentPowerUp.TargetColor = _color;
 		CurrentPowerUp.PunishPlayer();
+		CurrentPowerUp = null;
 	}
 
 	private void Awake()
