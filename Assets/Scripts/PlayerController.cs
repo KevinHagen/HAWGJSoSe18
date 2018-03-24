@@ -155,8 +155,7 @@ public class PlayerController : MonoBehaviour {
                         gameObject.layer = LayerMask.NameToLayer("Yellow");
                         break;
                 }
-                PlayerUI.SetKeyColor(_color);
-			}
+ 			}
         }
     }
 }
