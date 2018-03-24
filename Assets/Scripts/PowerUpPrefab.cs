@@ -36,6 +36,7 @@ public class PowerUpPrefab : MonoBehaviour {
 				StartCoroutine(powerUp.HoldTimer());
 
             other.GetComponent<PlayerController>().CurrentPowerUp = powerUp;
+            Destroy(gameObject);
         }
     }
 }
