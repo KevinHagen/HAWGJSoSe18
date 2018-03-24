@@ -55,6 +55,7 @@ public class Box : MonoBehaviour {
                         break;
                     default: _spawnObject = powerUpPrefab;
                         _spawnObject.GetComponent<PowerUpPrefab>().index = index;
+                        other.GetComponent<PlayerController>().PlayerUI.SetPowerUpIcon(index);
                         break;
                 }
 

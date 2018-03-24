@@ -4,9 +4,10 @@ using UnityEngine.UI;
 using UnityEngine;
 
 public class PlayerUI : MonoBehaviour {
-	[Tooltip("Must have same order as Colors Enum")]
-	public Sprite[] powerupIcons; //Must Have same order as Colors Enum
-	public Sprite[] keySprites; //-||-
+    [Tooltip("Order: DOOR_COLOR_SWITCHER,PLAYER_COLOR_SWITCHER,RAINBOW_COLORS,THUNDER")]
+    public Sprite[] powerupIcons; //Must Have same order as Index Enum
+    [Tooltip("Order: YELLOW,RED,GREEN,BLUE")]
+    public Sprite[] keySprites; //-||-
 
 	public GameObject powerupHolder;
 	public Image keyHolderIcon;
@@ -25,6 +26,11 @@ public class PlayerUI : MonoBehaviour {
 	{
 		keyHolderIcon.sprite = keySprites[(int)newColor];
 	}
+
+    public void SetPowerUpIcon(Box.Index index)
+    {
+        currentPowerupIcon.sprite = powerupIcons[((int)index)-1]; //-1 since Box.Index starts with EMPTY
+    }
 
 	public void HighlightColorField(int index)
 	{
