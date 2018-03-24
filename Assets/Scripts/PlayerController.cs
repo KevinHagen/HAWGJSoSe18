@@ -133,7 +133,7 @@ public class PlayerController : MonoBehaviour {
             gameObject.layer = LayerMask.NameToLayer("Default");
             //set different textures for color here
 
-            if (_color != Colors.BLACK || _color != Colors.RAINBOW || _color != Colors.IDLE)
+            if (_color != Colors.BLACK && _color != Colors.RAINBOW && _color != Colors.IDLE)
 			{
                 GetComponent<MeshRenderer>().material = playerMaterials[(int)_color];
                 switch (_color)

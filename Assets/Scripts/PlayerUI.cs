@@ -30,7 +30,7 @@ public class PlayerUI : MonoBehaviour {
 
     public void SetPowerUpIcon(Box.Index index)
     {
-        currentPowerupIcon.sprite = powerupIcons[((int)index)-1]; //-1 since Box.Index starts with EMPTY
+        currentPowerupIcon.sprite = powerupIcons[((int)index)]; 
     }
 
 	public void HighlightColorField(int index)
