@@ -25,8 +25,8 @@ public class Thunder : AbstractSingleTargetPowerUp
 
 	protected override void ResetPlayer()
 	{
-		base.ResetPlayer();
 		player.IsStunned = false;
+		base.ResetPlayer();
 	}
 
 	private void DropKey()

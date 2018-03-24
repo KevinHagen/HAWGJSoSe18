@@ -15,7 +15,9 @@ public abstract class AbstractPowerUp
 
 	public void PunishPlayer()
 	{
-		new Thunder(5,2).ExecutePowerUp();
+		Thunder thunder = new Thunder(5, 2);
+		thunder.TargetColor = TargetColor;
+		thunder.ExecutePowerUp();
 	}
 
 	public abstract void ExecutePowerUp();

@@ -151,12 +151,14 @@ public class LevelGenerator : MonoBehaviour {
     public void FillEmptyBox(Box.Index index)
     {
         int boxNum = 0;
+		int tryCounter = 30;
         do
         {
+			tryCounter--;
             boxNum = Random.Range(0, boxes.Length);
             _currentBox = boxes[boxNum].GetComponent<Box>();
 
-        } while (_currentBox.index != Box.Index.EMPTY || ConflictWithKey(_currentBox,index));
+        } while (_currentBox.index != Box.Index.EMPTY || (ConflictWithKey(_currentBox,index) && tryCounter>=0));
         _currentBox.index = index;
         Debug.Log(boxes[boxNum] + ", " + index);
     }
@@ -164,7 +166,7 @@ public class LevelGenerator : MonoBehaviour {
     public void ReplacePowerUp(Box.Index keyIndex)
     {
         int boxNum = 0;
-        int tryCounter = 15;
+        int tryCounter = 30;
         do
         {
             boxNum = Random.Range(0, boxes.Length);
@@ -173,7 +175,7 @@ public class LevelGenerator : MonoBehaviour {
 
         } while (_currentBox.index == Box.Index.KEY_BLUE || _currentBox.index == Box.Index.KEY_GREEN ||
                     _currentBox.index == Box.Index.KEY_RED || _currentBox.index == Box.Index.KEY_YELLOW || 
-                    (!ConflictWithKey(_currentBox, keyIndex) && tryCounter<=0));
+                    (!ConflictWithKey(_currentBox, keyIndex) && tryCounter>=0));
         _currentBox.index = keyIndex;
         Debug.Log(boxes[boxNum] + ", " + keyIndex);
     }

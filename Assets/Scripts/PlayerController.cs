@@ -32,10 +32,12 @@ public class PlayerController : MonoBehaviour {
 		holdTimeLeft = holdTime;
 		while (holdTimeLeft > 0)
 		{
+			PlayerUI.holdTimerText.text = "" + holdTimeLeft;
 			yield return new WaitForSeconds(1f);
 			holdTimeLeft--;
-			PlayerUI.holdTimerText.text = "" + holdTimeLeft;
 		}
+		PlayerUI.holdTimerText.text = "" + holdTimeLeft;
+		CurrentPowerUp.TargetColor = _color;
 		CurrentPowerUp.PunishPlayer();
 	}
 
@@ -91,6 +93,7 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate()
 	{
+		if (IsStunned) return;
         playerMovement.Move( Input.GetAxis(HORIZONTAL_AXIS + playerNumber), Input.GetAxis(VERTICAL_AXIS + playerNumber));
 	}
 
