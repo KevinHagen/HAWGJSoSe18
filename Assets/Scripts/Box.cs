@@ -6,7 +6,6 @@ public class Box : MonoBehaviour {
 
     public enum Index
     {
-        EMPTY,
         DOOR_COLOR_SWITCHER,
         PLAYER_COLOR_SWITCHER,
         RAINBOW_COLORS,
@@ -14,7 +13,8 @@ public class Box : MonoBehaviour {
         KEY_YELLOW,
         KEY_RED,
         KEY_GREEN,
-        KEY_BLUE
+        KEY_BLUE,
+        EMPTY
     }
 
     public Index index;

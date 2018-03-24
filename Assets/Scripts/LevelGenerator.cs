@@ -101,7 +101,7 @@ public class LevelGenerator : MonoBehaviour {
     public Box.Index FindPowerUpIndex()
     {
         float randIndex = Random.Range(0f, 1f);
-        Box.Index boxIndex = Box.Index.DOOR_COLOR_SWITCHER;
+        Box.Index boxIndex = Box.Index.EMPTY;
 
         for(int i=0;i<powerUpChance.Length;i++)
         {
