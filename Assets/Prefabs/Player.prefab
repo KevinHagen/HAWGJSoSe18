@@ -353,7 +353,11 @@ MonoBehaviour:
   powerupHolder: {fileID: 1065544717871196}
   keyHolderIcon: {fileID: 114876476707195484}
   currentPowerupIcon: {fileID: 114140275700502864}
-  colorFields: []
+  colorFields:
+  - {fileID: 114706967591431148}
+  - {fileID: 114608406805073906}
+  - {fileID: 114577229432350096}
+  - {fileID: 114459073322872976}
   holdTimerText: {fileID: 114418339043411806}
 --- !u!114 &114459073322872976
 MonoBehaviour:
@@ -496,6 +500,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 6a00e1afedbea5e419f892a392c8062f, type: 2}
   - {fileID: 2100000, guid: 24b70f71438c2784eaef76dcc6d19b3f, type: 2}
   - {fileID: 2100000, guid: 7ee3fb70eea91694ba3a751181695b7f, type: 2}
+  - {fileID: 2100000, guid: d7386c4876f511547812fff09b3a8dd2, type: 2}
+  - {fileID: 2100000, guid: 997811b9bc1631d46888b4902ad1a396, type: 2}
   playerMovement: {fileID: 114326367339887796}
   playerNumber: 1
 --- !u!114 &114854587606806798
