@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine;
 
 public class PlayerUI : MonoBehaviour {
+
     [Tooltip("Order: DOOR_COLOR_SWITCHER,PLAYER_COLOR_SWITCHER,RAINBOW_COLORS,THUNDER")]
     public Sprite[] powerupIcons; //Must Have same order as Index Enum
     [Tooltip("Order: YELLOW,RED,GREEN,BLUE")]

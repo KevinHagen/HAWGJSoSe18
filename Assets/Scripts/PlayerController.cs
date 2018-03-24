@@ -31,6 +31,11 @@ public class PlayerController : MonoBehaviour {
 
     void Update()
 	{
+        if(Input.GetButtonDown(BLUE_BUTTON+playerNumber))
+        {
+            Debug.Log(Input.GetJoystickNames());
+            Debug.Log("blue button pressed");
+        }
 		PlayerUI.UpdateUI(HasKey, CurrentPowerUp != null);
 		if (IsStunned) return;
 
@@ -66,7 +71,11 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate()
 	{
-		if (Input.GetAxisRaw(HORIZONTAL_AXIS+playerNumber) != 0 || Input.GetAxisRaw(VERTICAL_AXIS+playerNumber) != 0) playerMovement.Move();
+        playerMovement.Move( Input.GetAxis(HORIZONTAL_AXIS + playerNumber), Input.GetAxis(VERTICAL_AXIS + playerNumber));
+        //if (Input.GetAxisRaw(HORIZONTAL_AXIS + playerNumber) != 0 || Input.GetAxisRaw(VERTICAL_AXIS + playerNumber) != 0)
+        //{
+        //    playerMovement.Move();
+        //}
 	}
 
 

@@ -341,10 +341,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerupIcons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 72ff1ef2a7d1938469486006f830e3da, type: 3}
+  - {fileID: 21300000, guid: 38d9a207e83eeed4a9689f71b472a1f8, type: 3}
+  - {fileID: 21300000, guid: 920f384b15e7a7f4abc11955ce6c9f5d, type: 3}
+  - {fileID: 21300000, guid: 77d3f7d604e108147a01868498748ad5, type: 3}
   keySprites:
   - {fileID: 21300000, guid: 724ce5c668a01b847956395608463420, type: 3}
   - {fileID: 21300000, guid: 037114e32694f864886f76839cfe70da, type: 3}
@@ -490,7 +490,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3e50a708303b54b87f2369fa27fce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNumber: 0
+  activatePressed: 0
+  playerMovement: {fileID: 114326367339887796}
+  playerNumber: 1
 --- !u!114 &114854587606806798
 MonoBehaviour:
   m_ObjectHideFlags: 1
