@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
 	public bool IsStunned { get; set; }
 	public AbstractPowerUp CurrentPowerUp { get; set; }
 	public PlayerUI PlayerUI { get; private set; }
+    public bool hasKey { get; set; }
 
     private Colors _color;
 	private bool needsTwoColors;
