@@ -106,7 +106,7 @@ public class LevelGenerator : MonoBehaviour {
         FillEmptyBox(Box.Index.KEY_YELLOW);
         for (int i = 0; i < boxes.Length-4; i++)
         {
-            FillEmptyBox(FindPowerUpIndex());
+            //FillEmptyBox(FindPowerUpIndex());
         }
     }
 
