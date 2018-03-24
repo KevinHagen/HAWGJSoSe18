@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour {
-    
+
+    public static LevelGenerator levelGenerator;
     public Transform[] startPositions,boxPositions;
     public GameObject[] players,boxes;
     [Tooltip("Order: doorColorChange, playerColorChange, rainbow, thunder")]
@@ -14,6 +15,18 @@ public class LevelGenerator : MonoBehaviour {
     private Dictionary<Transform, bool> startPositionsDictionary, boxPositionsDictionary;
     private Dictionary<Colors, bool> playerColors;
     private Dictionary<Transform, Colors> quarters;
+
+    private void Awake()
+    {
+        if(levelGenerator==null)
+        {
+            levelGenerator = this;
+        }
+        if(levelGenerator!=this)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // Use this for initialization
     void Start () {
@@ -72,7 +85,7 @@ public class LevelGenerator : MonoBehaviour {
     {
         for(int j=0;j<boxes.Length;j++)
         {
-            PositionBox(j);
+            PositionBox(boxes[j]);
         }
         FillEmptyBox(Box.Index.KEY_BLUE);
         FillEmptyBox(Box.Index.KEY_GREEN);
@@ -106,7 +119,7 @@ public class LevelGenerator : MonoBehaviour {
         return boxIndex;
     }
 
-    public void PositionBox(int index)
+    public void PositionBox(GameObject box)
     {
         int randBox;
         do
@@ -115,20 +128,20 @@ public class LevelGenerator : MonoBehaviour {
 
         } while (boxPositionsDictionary[boxPositions[randBox]]);
         boxPositionsDictionary[boxPositions[randBox]] = true;
-        boxes[index].transform.position = boxPositions[randBox].position;
+        box.transform.position = boxPositions[randBox].position;
 
         Colors color=Colors.BLACK;
         float minDistance=int.MaxValue;
         for(int i=0;i<players.Length;i++)
         {
-            float distance = Vector3.Distance(boxes[index].transform.position, startPositions[i].position);
+            float distance = Vector3.Distance(box.transform.position, startPositions[i].position);
             if (distance<minDistance)
             {
                 color = quarters[startPositions[i]];
                 minDistance = distance;
             }
         }
-        boxes[index].GetComponent<Box>().quarter = color;
+        box.GetComponent<Box>().quarter = color;
     }
 
     //finds and fills an empty Box with given index
@@ -140,12 +153,12 @@ public class LevelGenerator : MonoBehaviour {
             boxNum = Random.Range(0, boxes.Length);
             _currentBox = boxes[boxNum].GetComponent<Box>();
 
-        } while (_currentBox.index != Box.Index.EMPTY && ConflictWithKey(_currentBox,index));
+        } while (_currentBox.index != Box.Index.EMPTY || ConflictWithKey(_currentBox,index));
         _currentBox.index = index;
         Debug.Log(boxes[boxNum] + ", " + index);
     }
 
-    public void ReplacePowerUp(Box.Index index)
+    public void ReplacePowerUp(Box.Index keyIndex)
     {
         int boxNum = 0;
         do
@@ -154,9 +167,10 @@ public class LevelGenerator : MonoBehaviour {
             _currentBox = boxes[boxNum].GetComponent<Box>();
 
         } while (_currentBox.index == Box.Index.KEY_BLUE || _currentBox.index == Box.Index.KEY_GREEN ||
-                    _currentBox.index == Box.Index.KEY_RED || _currentBox.index == Box.Index.KEY_YELLOW);
-        _currentBox.index = index;
-        Debug.Log(boxes[boxNum] + ", " + index);
+                    _currentBox.index == Box.Index.KEY_RED || _currentBox.index == Box.Index.KEY_YELLOW || 
+                    ConflictWithKey(_currentBox, keyIndex));
+        _currentBox.index = keyIndex;
+        Debug.Log(boxes[boxNum] + ", " + keyIndex);
     }
 
     public bool ConflictWithKey(Box box,Box.Index index)
