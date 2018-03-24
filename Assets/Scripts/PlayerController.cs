@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-
+    
+	public bool IsStunned { get; set; }
     private Colors _color;
 
-
-    // Use this for initialization
     void Start() {
 
     }
@@ -19,6 +18,10 @@ public class PlayerController : MonoBehaviour {
 
     public Colors Color
     {
+		get
+		{
+			return _color;
+		}
         set
         {
             _color = value;
