@@ -13,7 +13,7 @@ public class Thunder : AbstractSingleTargetPowerUp
 
 	public override void ExecutePowerUp()
 	{
-		player = DetermineTarget(TargetColor);
+		player = DeterminePlayerTarget(TargetColor);
         player.StopAllCoroutines();
         player.IsStunned = true;
 		tempColor = player.Color;
@@ -21,7 +21,6 @@ public class Thunder : AbstractSingleTargetPowerUp
 		DropKey();
 		//TODO Animation/Partikel spielen
 		player.StartCoroutine(WaitForPlayerReset());
-		player.CurrentPowerUp = null;
 	}
 
 	protected override void ResetPlayer()

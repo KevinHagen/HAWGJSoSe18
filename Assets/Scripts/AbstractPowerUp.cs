@@ -20,13 +20,26 @@ public abstract class AbstractPowerUp
 
 	public abstract void ExecutePowerUp();
 
-	protected PlayerController DetermineTarget(Colors colorToCheck)
+	protected PlayerController DeterminePlayerTarget(Colors colorToCheck) 
 	{
 		for (int i = 0; i < GameManager.INSTANCE.players.Length; i++)
 		{
 			if (GameManager.INSTANCE.players[i].Color == colorToCheck)
 			{
 				return GameManager.INSTANCE.players[i];
+			}
+		}
+
+		return null;
+	}
+
+	protected DoorController DetermineDoorTarget(Colors colorToCheck)
+	{
+		for (int i = 0; i < DoorManager.INSTANCE.Doors.Length; i++)
+		{
+			if (DoorManager.INSTANCE.Doors[i].Color == colorToCheck)
+			{
+				return DoorManager.INSTANCE.Doors[i];
 			}
 		}
 

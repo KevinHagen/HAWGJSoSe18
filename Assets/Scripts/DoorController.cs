@@ -5,7 +5,7 @@ using UnityEngine;
 public class DoorController : MonoBehaviour {
 
     MeshRenderer meshRend;
-    public Colors _color;
+    public Colors Color { get; set; }
 
 	// Use this for initialization
 	void Start () {
@@ -15,7 +15,7 @@ public class DoorController : MonoBehaviour {
     public void ChangeColor (Colors color)
     {
         meshRend.material = DoorManager.INSTANCE.doorMaterialDictionary[color];
-        _color = color;
+        Color = color;
         switch(color)
         {
             case Colors.BLUE:

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorColorSwitcher : AbstractPowerUp
+public class DoorColorSwitcher : AbstractMultipleTargetPowerUp
 {
     public DoorColorSwitcher(int holdTime)
     {
@@ -11,6 +11,10 @@ public class DoorColorSwitcher : AbstractPowerUp
 
     public override void ExecutePowerUp()
 	{
-		
+		DoorController targetDoor = DetermineDoorTarget(TargetColor);
+		DoorController secondTargetDoor = DetermineDoorTarget(SecondTargetColor);
+		tempColor = targetDoor.Color;
+		targetDoor.Color = secondTargetDoor.Color;
+		secondTargetDoor.Color = tempColor;
 	}
 }

@@ -13,13 +13,12 @@ public class PlayerColorSwitcher : AbstractMultipleTargetPowerUp
 
     public override void ExecutePowerUp()
 	{
-		player = DetermineTarget(TargetColor);
+		player = DeterminePlayerTarget(TargetColor);
 		player.StopAllCoroutines();
-		secondPlayer = DetermineTarget(SecondTargetColor);
+		secondPlayer = DeterminePlayerTarget(SecondTargetColor);
 
 		tempColor = player.Color;
 		player.Color = secondPlayer.Color;
 		secondPlayer.Color = tempColor;
-		player.CurrentPowerUp = null;
 	}
 }

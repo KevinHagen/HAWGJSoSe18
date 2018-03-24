@@ -6,23 +6,23 @@ public class DoorManager : MonoBehaviour
 {
     public static DoorManager INSTANCE;
 
-    GameObject[] doors;
-    Dictionary<GameObject, bool> doorColorDictionary;
+    public DoorController[] Doors { get; private set; }
+
+    Dictionary<DoorController, bool> doorColorDictionary;
     public Dictionary<Colors, Material> doorMaterialDictionary;
     public Material redDoor;
     public Material greenDoor;
     public Material blueDoor;
     public Material yellowDoor;
-    
-    
+
     // Use this for initialization
     void Start()
     {
         if (INSTANCE == null) INSTANCE = this;
         if (INSTANCE != this) Destroy(this);
 
-        doors = GameObject.FindGameObjectsWithTag("Door");
-        doorColorDictionary = new Dictionary<GameObject, bool>();
+        Doors = GameObject.Find("Doors").GetComponentsInChildren<DoorController>();
+        doorColorDictionary = new Dictionary<DoorController, bool>();
         doorMaterialDictionary = new Dictionary<Colors, Material>();
         doorMaterialDictionary.Add(Colors.BLUE, blueDoor);
         doorMaterialDictionary.Add(Colors.RED, redDoor);
@@ -34,22 +34,22 @@ public class DoorManager : MonoBehaviour
 
     void GenerateDoors ()
     {
-        for (int i = 0; i < doors.Length; i++)
+        for (int i = 0; i < Doors.Length; i++)
         {
-            doorColorDictionary.Add(doors[i], false);
+            doorColorDictionary.Add(Doors[i], false);
         }
         int randomDoorNr;
         Colors[] colors= { Colors.BLUE, Colors.RED, Colors.GREEN, Colors.YELLOW };
-        for (int i = 0; i < doors.Length; i += 1)
+        for (int i = 0; i < Doors.Length; i += 1)
         {
             Colors thisColor = colors[i % 4];
             do
             {
-                randomDoorNr = Random.Range(0, doors.Length);
-            } while (doorColorDictionary[doors[randomDoorNr]] == true);
-            doors[randomDoorNr].GetComponent<DoorController>()._color = thisColor;
-            doorColorDictionary[doors[randomDoorNr]] = true;
-            doors[randomDoorNr].GetComponent<DoorController>().ChangeColor(thisColor);
+                randomDoorNr = Random.Range(0, Doors.Length);
+            } while (doorColorDictionary[Doors[randomDoorNr]] == true);
+            Doors[randomDoorNr].GetComponent<DoorController>().Color = thisColor;
+            doorColorDictionary[Doors[randomDoorNr]] = true;
+            Doors[randomDoorNr].GetComponent<DoorController>().ChangeColor(thisColor);
         }
     }
 

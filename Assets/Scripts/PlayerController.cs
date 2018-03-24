@@ -77,12 +77,14 @@ public class PlayerController : MonoBehaviour {
 				multiTargetPowerUp.SecondTargetColor = colorPressed;
                 if (colorPressed == Colors.IDLE) return;
                 multiTargetPowerUp.ExecutePowerUp();
+				CurrentPowerUp = null;
 			}
 		}
 		else
 		{
 			CurrentPowerUp.TargetColor = colorPressed;
 			CurrentPowerUp.ExecutePowerUp();
+			CurrentPowerUp = null;
 		}
 	}
 
