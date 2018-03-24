@@ -6,6 +6,14 @@ public class Key : MonoBehaviour {
 
     public Colors color;
     public Box.Index index;
+    public Texture[] textures;
+
+    private void Start()
+    {
+        //set texture of key here
+        //TODO
+        //texture = textures[(int)color];
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -19,6 +27,7 @@ public class Key : MonoBehaviour {
             {
                 LevelGenerator.levelGenerator.ReplacePowerUp(index);
             }
+            Destroy(gameObject);
         }
     }
 }

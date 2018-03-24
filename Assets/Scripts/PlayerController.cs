@@ -87,10 +87,26 @@ public class PlayerController : MonoBehaviour {
         set
         {
             _color = value;
+            gameObject.layer = LayerMask.NameToLayer("Default");
             //set different textures for color here
-			if(_color != Colors.BLACK || _color != Colors.RAINBOW || _color != Colors.IDLE)
+            if (_color != Colors.BLACK || _color != Colors.RAINBOW || _color != Colors.IDLE)
 			{
-				PlayerUI.SetKeyColor(_color);
+                switch (_color)
+                {
+                    case Colors.BLUE:
+                        gameObject.layer = LayerMask.NameToLayer("Blue");
+                        break;
+                    case Colors.GREEN:
+                        gameObject.layer = LayerMask.NameToLayer("Green");
+                        break;
+                    case Colors.RED:
+                        gameObject.layer = LayerMask.NameToLayer("Red");
+                        break;
+                    case Colors.YELLOW:
+                        gameObject.layer = LayerMask.NameToLayer("Yellow");
+                        break;
+                }
+                PlayerUI.SetKeyColor(_color);
 			}
         }
     }

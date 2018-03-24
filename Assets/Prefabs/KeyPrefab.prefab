@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23159361315611994}
   - component: {fileID: 114384973109415714}
   m_Layer: 0
-  m_Name: KeyBluePrefab
+  m_Name: KeyPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,6 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: 0
   index: 0
+  textures: []
 --- !u!135 &135225459116229584
 SphereCollider:
   m_ObjectHideFlags: 1

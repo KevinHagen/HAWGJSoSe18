@@ -20,7 +20,7 @@ public class Box : MonoBehaviour {
     public Index index;
     public Colors quarter;
     public GameObject powerUpPrefab;
-    public GameObject keyYellowPrefab, keyRedPrefab, keyGreenPrefab, keyBluePrefab;
+    public GameObject keyPrefab;
 
 	// Use this for initialization
 	void Awake () {
@@ -38,19 +38,19 @@ public class Box : MonoBehaviour {
                 switch(index)
                 {
                     case Index.KEY_BLUE:
-                        _spawnObject= keyBluePrefab;
+                        _spawnObject= keyPrefab;
                         TransferData(_spawnObject, index, Colors.BLUE);
                         break;
                     case Index.KEY_GREEN:
-                        _spawnObject = keyGreenPrefab;
+                        _spawnObject = keyPrefab;
                         TransferData(_spawnObject, index, Colors.GREEN);
                         break;
                     case Index.KEY_RED:
-                        _spawnObject = keyRedPrefab;
+                        _spawnObject = keyPrefab;
                         TransferData(_spawnObject, index, Colors.RED);
                         break;
                     case Index.KEY_YELLOW:
-                        _spawnObject = keyYellowPrefab;
+                        _spawnObject = keyPrefab;
                         TransferData(_spawnObject, index, Colors.YELLOW);
                         break;
                     default: _spawnObject = powerUpPrefab;
