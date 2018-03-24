@@ -13,11 +13,11 @@ public class Key : MonoBehaviour {
         {
             if(other.GetComponent<PlayerController>().Color==color)
             {
-                //other.GetComponent<PlayerController>().hasKey = true;
+                other.GetComponent<PlayerController>().hasKey = true;
             }
             else
             {
-                //LevelGenerator.levelGenerator.ReplacePowerUp()
+                LevelGenerator.levelGenerator.ReplacePowerUp(index);
             }
         }
     }

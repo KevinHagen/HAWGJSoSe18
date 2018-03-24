@@ -15,14 +15,14 @@ public class PowerUpPrefab : MonoBehaviour {
     {
         if(other.tag=="Player")
         {
-            AbstractPowerUp powerUp;
+            AbstractPowerUp powerUp=null;
             switch(index)
             {
                 case Box.Index.DOOR_COLOR_SWITCHER:
                     powerUp = new DoorColorSwitcher();
                     break;
                 case Box.Index.PLAYER_COLOR_SWITCHER:
-                    //powerUp = new PlayerColorSwitcher();
+                    powerUp = new PlayerColorSwitcher();
                     break;
                 case Box.Index.RAINBOW_COLORS:
                     powerUp = new RainbowColors();
@@ -32,7 +32,7 @@ public class PowerUpPrefab : MonoBehaviour {
                     break;
             }
 
-            //other.GetComponent<PlayerController>().abstractPowerUp = powerUp;
+            other.GetComponent<PlayerController>().CurrentPowerUp = powerUp;
         }
     }
 }

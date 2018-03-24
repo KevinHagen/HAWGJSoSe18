@@ -38,20 +38,20 @@ public class Box : MonoBehaviour {
                 switch(index)
                 {
                     case Index.KEY_BLUE:
-                        _spawnObject = keyBluePrefab;
-                        _spawnObject.GetComponent<Key>().index = index;
+                        _spawnObject= keyBluePrefab;
+                        TransferData(_spawnObject, index, Colors.BLUE);
                         break;
                     case Index.KEY_GREEN:
                         _spawnObject = keyGreenPrefab;
-                        _spawnObject.GetComponent<Key>().index = index;
+                        TransferData(_spawnObject, index, Colors.GREEN);
                         break;
                     case Index.KEY_RED:
                         _spawnObject = keyRedPrefab;
-                        _spawnObject.GetComponent<Key>().index = index;
+                        TransferData(_spawnObject, index, Colors.RED);
                         break;
                     case Index.KEY_YELLOW:
                         _spawnObject = keyYellowPrefab;
-                        _spawnObject.GetComponent<Key>().index = index;
+                        TransferData(_spawnObject, index, Colors.YELLOW);
                         break;
                     default: _spawnObject = powerUpPrefab;
                         _spawnObject.GetComponent<PowerUpPrefab>().index = index;
@@ -62,5 +62,11 @@ public class Box : MonoBehaviour {
                 LevelGenerator.levelGenerator.PositionBox(gameObject);
             }
         }
+    }
+
+    private void TransferData(GameObject spawnObject,Index index,Colors color)
+    {
+        spawnObject.GetComponent<Key>().index = index;
+        spawnObject.GetComponent<Key>().color = color;
     }
 }
