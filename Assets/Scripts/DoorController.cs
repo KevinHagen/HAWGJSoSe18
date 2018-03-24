@@ -6,7 +6,6 @@ public class DoorController : MonoBehaviour {
 
     MeshRenderer meshRend;
     public Colors _color;
-    Material _material;
 
 	// Use this for initialization
 	void Start () {
@@ -16,5 +15,6 @@ public class DoorController : MonoBehaviour {
     public void ChangeColor (Colors color)
     {
         meshRend.material = DoorManager.INSTANCE.doorMaterialDictionary[color];
+        _color = color;
     }
 }

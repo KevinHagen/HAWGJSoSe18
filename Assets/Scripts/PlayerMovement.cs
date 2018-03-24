@@ -7,12 +7,12 @@ public class PlayerMovement : MonoBehaviour {
     public float speed = 320f;
     private Vector3 movement;
     Rigidbody rigid;
-    GameObject camera;
+    GameObject mainCamera;
 
 	// Use this for initialization
 	void Start () {
         rigid = GetComponent<Rigidbody>();
-        camera = Camera.main.gameObject;
+        mainCamera = Camera.main.gameObject;
 	}
 	
 	// Update is called once per frame
@@ -23,10 +23,13 @@ public class PlayerMovement : MonoBehaviour {
     private void Move ()
     {
         movement = new Vector3(
-                (camera.transform.forward.x * Input.GetAxis("Vertical") + camera.transform.right.x * Input.GetAxis("Horizontal")),
+                (mainCamera.transform.forward.x * Input.GetAxis("Vertical") + mainCamera.transform.right.x * Input.GetAxis("Horizontal")),
                 0,
-                (camera.transform.forward.z * Input.GetAxis("Vertical") + camera.transform.right.z * Input.GetAxis("Horizontal"))) 
+                (mainCamera.transform.forward.z * Input.GetAxis("Vertical") + mainCamera.transform.right.z * Input.GetAxis("Horizontal"))) 
                 * speed * Time.deltaTime;
         rigid.velocity = movement;
     }
+
+
+
 }

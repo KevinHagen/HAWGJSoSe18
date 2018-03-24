@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
     
 	public bool IsStunned { get; set; }
-    private Colors _color;
+    public Colors _color;
 
     void Start() {
 
