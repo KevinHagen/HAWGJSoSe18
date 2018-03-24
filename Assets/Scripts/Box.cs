@@ -32,7 +32,7 @@ public class Box : MonoBehaviour {
     {
         if(other.tag=="Player")
         {
-            if(Input.GetAxisRaw("Activate")==1 || Input.GetAxisRaw("Activate") == -1)
+            if(other.gameObject.GetComponent<PlayerController>().activatePressed)
             {
                 GameObject _spawnObject;
                 switch(index)

@@ -14,13 +14,8 @@ public class PlayerMovement : MonoBehaviour {
         rigid = GetComponent<Rigidbody>();
         mainCamera = Camera.main.gameObject;
 	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
-        if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0) Move();
-    }
 
-    private void Move ()
+    public void Move ()
     {
         movement = new Vector3(
                 (mainCamera.transform.forward.x * Input.GetAxis("Vertical") + mainCamera.transform.right.x * Input.GetAxis("Horizontal")),
