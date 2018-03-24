@@ -7,7 +7,7 @@ public class LevelGenerator : MonoBehaviour {
     public static LevelGenerator levelGenerator;
     public Transform[] startPositions,boxPositions;
     public GameObject[] players,boxes;
-    [Tooltip("Order: doorColorChange, playerColorChange, rainbow, thunder")]
+    [Tooltip("Order: doorColorChange, playerColorChange, rainbow, thunder. Left over propability goes to EMPTY")]
     public float[] powerUpChance;
 
     private PlayerController _currentPlayer;
@@ -127,9 +127,12 @@ public class LevelGenerator : MonoBehaviour {
             randBox = Random.Range(0, boxPositions.Length);
 
         } while (boxPositionsDictionary[boxPositions[randBox]]);
-        boxPositionsDictionary[boxPositions[randBox]] = true;
-        box.transform.position = boxPositions[randBox].position;
+        boxPositionsDictionary[boxPositions[randBox]] = true;   //place box in a new space and set this as occupied
+        boxPositionsDictionary[box.transform] = false;          //set the old box position as free
+        box.transform.position = boxPositions[randBox].position;    //move the box to its new position
+        
 
+        //determine in which quarter the box is
         Colors color=Colors.BLACK;
         float minDistance=int.MaxValue;
         for(int i=0;i<players.Length;i++)
@@ -161,14 +164,16 @@ public class LevelGenerator : MonoBehaviour {
     public void ReplacePowerUp(Box.Index keyIndex)
     {
         int boxNum = 0;
+        int tryCounter = 15;
         do
         {
             boxNum = Random.Range(0, boxes.Length);
             _currentBox = boxes[boxNum].GetComponent<Box>();
+            tryCounter--;
 
         } while (_currentBox.index == Box.Index.KEY_BLUE || _currentBox.index == Box.Index.KEY_GREEN ||
                     _currentBox.index == Box.Index.KEY_RED || _currentBox.index == Box.Index.KEY_YELLOW || 
-                    ConflictWithKey(_currentBox, keyIndex));
+                    (!ConflictWithKey(_currentBox, keyIndex) && tryCounter<=0));
         _currentBox.index = keyIndex;
         Debug.Log(boxes[boxNum] + ", " + keyIndex);
     }
