@@ -14,5 +14,6 @@ public abstract class AbstractSingleTargetPowerUp : AbstractPowerUp {
 	{
 		player.Color = tempColor;
 		TargetColor = Colors.IDLE;
+		player = null;
 	}
 }

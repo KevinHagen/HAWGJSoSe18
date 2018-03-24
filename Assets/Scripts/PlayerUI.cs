@@ -10,6 +10,7 @@ public class PlayerUI : MonoBehaviour {
 	public Sprite[] powerupIcons; //Must Have same order as Colors Enum
 	public Sprite[] keySprites; //-||-
 
+	public GameObject powerupHolder;
 	public Image keyHolderIcon;
 	public Image currentPowerupIcon;
 	public Image[] colorFields;
@@ -28,9 +29,9 @@ public class PlayerUI : MonoBehaviour {
 		Debug.Log("Changed color of: " + index);
 	}
 
-	public void UpdateUI(bool hasKey, int powerupIconIndex)
+	public void UpdateUI(bool hasKey, bool hasPowerup)
 	{
 		keyHolderIcon.gameObject.SetActive(hasKey);
-		currentPowerupIcon.sprite = powerupIcons[powerupIconIndex];
+		powerupHolder.SetActive(hasPowerup);
 	}
 }

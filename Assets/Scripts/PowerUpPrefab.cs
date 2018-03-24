@@ -32,6 +32,9 @@ public class PowerUpPrefab : MonoBehaviour {
                     break;
             }
 
+			if (powerUp != null)
+				StartCoroutine(powerUp.HoldTimer());
+
             other.GetComponent<PlayerController>().CurrentPowerUp = powerUp;
         }
     }

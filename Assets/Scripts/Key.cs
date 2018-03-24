@@ -13,7 +13,7 @@ public class Key : MonoBehaviour {
         {
             if(other.GetComponent<PlayerController>().Color==color)
             {
-                other.GetComponent<PlayerController>().hasKey = true;
+                other.GetComponent<PlayerController>().HasKey = true;
             }
             else
             {
