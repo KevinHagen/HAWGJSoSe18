@@ -12,9 +12,12 @@ public class GameManager : MonoBehaviour {
 
 	private void Awake()
 	{
-		if (INSTANCE == null)
+		if (INSTANCE != null && INSTANCE != this)
+			Destroy(gameObject);
+		else
 			INSTANCE = this;
-		if (INSTANCE != this)
-			Destroy(this);
+
+		doorManager.Init();
+		levelGenerator.Init(players);
 	}
 }

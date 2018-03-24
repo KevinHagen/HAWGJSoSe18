@@ -26,6 +26,10 @@ public class PlayerController : MonoBehaviour {
 	private string HORIZONTAL_AXIS = "Horizontal";
 	private string VERTICAL_AXIS = "Vertical";
 
+	public void Init()
+	{
+		PlayerUI = GetComponentInChildren<PlayerUI>();
+	}
 
 	public IEnumerator HoldTimer(int holdTime)
 	{
@@ -40,11 +44,6 @@ public class PlayerController : MonoBehaviour {
 		CurrentPowerUp.TargetColor = _color;
 		CurrentPowerUp.PunishPlayer();
 		CurrentPowerUp = null;
-	}
-
-	private void Awake()
-	{
-		PlayerUI = GetComponentInChildren<PlayerUI>();
 	}
 
     void Update()

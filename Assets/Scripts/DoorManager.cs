@@ -15,28 +15,34 @@ public class DoorManager : MonoBehaviour
     public Material blueDoor;
     public Material yellowDoor;
 
-    // Use this for initialization
-    void Start()
+    public void Init()
     {
-        if (INSTANCE == null) INSTANCE = this;
-        if (INSTANCE != this) Destroy(this);
+        if (INSTANCE != this && INSTANCE != null)
+			Destroy(this);
+        else
+			INSTANCE = this;
 
         Doors = GameObject.Find("Doors").GetComponentsInChildren<DoorController>();
+		InitializeDictionaries();
+        GenerateDoors();
+    }
+
+	private void InitializeDictionaries()
+	{
         doorColorDictionary = new Dictionary<DoorController, bool>();
         doorMaterialDictionary = new Dictionary<Colors, Material>();
         doorMaterialDictionary.Add(Colors.BLUE, blueDoor);
         doorMaterialDictionary.Add(Colors.RED, redDoor);
         doorMaterialDictionary.Add(Colors.YELLOW, yellowDoor);
-        doorMaterialDictionary.Add(Colors.GREEN, greenDoor);
-        
-        GenerateDoors();
-    }
+		doorMaterialDictionary.Add(Colors.GREEN, greenDoor);
+	}
 
-    void GenerateDoors ()
+	private void GenerateDoors ()
     {
         for (int i = 0; i < Doors.Length; i++)
         {
             doorColorDictionary.Add(Doors[i], false);
+			Doors[i].Init();
         }
         int randomDoorNr;
         Colors[] colors= { Colors.BLUE, Colors.RED, Colors.GREEN, Colors.YELLOW };
@@ -46,11 +52,10 @@ public class DoorManager : MonoBehaviour
             do
             {
                 randomDoorNr = Random.Range(0, Doors.Length);
-            } while (doorColorDictionary[Doors[randomDoorNr]] == true);
-            Doors[randomDoorNr].GetComponent<DoorController>().Color = thisColor;
+            } while (doorColorDictionary[Doors[randomDoorNr]]);
+            Doors[randomDoorNr].Color = thisColor;
             doorColorDictionary[Doors[randomDoorNr]] = true;
-            Doors[randomDoorNr].GetComponent<DoorController>().ChangeColor(thisColor);
+            Doors[randomDoorNr].ChangeColor(thisColor);
         }
     }
-
 }

@@ -6,57 +6,71 @@ public class LevelGenerator : MonoBehaviour {
 
     public static LevelGenerator levelGenerator;
     public Transform[] startPositions,boxPositions;
-    public GameObject[] players,boxes;
+    public GameObject[] boxes;
     [Tooltip("Order: doorColorChange, playerColorChange, rainbow, thunder. Left over propability goes to EMPTY")]
     public float[] powerUpChance;
 
     private PlayerController _currentPlayer;
     private Box _currentBox;
+	private GameObject[] players;
     private Dictionary<Transform, bool> startPositionsDictionary, boxPositionsDictionary;
     private Dictionary<Colors, bool> playerColors;
     private Dictionary<Transform, Colors> quarters;
-
-    private void Awake()
-    {
-        if(levelGenerator==null)
-        {
-            levelGenerator = this;
-        }
-        if(levelGenerator!=this)
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    // Use this for initialization
-    void Start () {
-        startPositionsDictionary = new Dictionary<Transform, bool>();
-        playerColors = new Dictionary<Colors, bool>();
-        boxPositionsDictionary = new Dictionary<Transform, bool>();
-        quarters = new Dictionary<Transform, Colors>();
-        for (int i=0;i<startPositions.Length;i++)
-        {
-            startPositionsDictionary.Add(startPositions[i], false);
-            quarters.Add(startPositions[i],Colors.BLACK);
-        }
-        for(int j=0;j<boxPositions.Length;j++)
-        {
-            boxPositionsDictionary.Add(boxPositions[j], false);
-        }
-        playerColors.Add(Colors.BLUE, false);
-        playerColors.Add(Colors.GREEN, false);
-        playerColors.Add(Colors.RED, false);
-        playerColors.Add(Colors.YELLOW, false);
-
+	
+    public void Init(PlayerController[] _players) {
+		if (levelGenerator == null && levelGenerator != this)
+		{
+			levelGenerator = this;
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
+		SetPlayers(_players);
+		InitializeDictionaries();
         SetStartPositionsPlayers();
         SetStartPositionBoxes();
     }
 
-    public void SetStartPositionsPlayers()
+	private void SetPlayers(PlayerController[] _players)
+	{
+		players = new GameObject[_players.Length];
+		for (int i = 0; i < _players.Length; i++)
+		{
+			players[i] = _players[i].gameObject;
+		}
+	}
+
+	private void InitializeDictionaries()
+	{
+		startPositionsDictionary = new Dictionary<Transform, bool>();
+		playerColors = new Dictionary<Colors, bool>();
+		boxPositionsDictionary = new Dictionary<Transform, bool>();
+		quarters = new Dictionary<Transform, Colors>();
+
+		for (int i = 0; i < startPositions.Length; i++)
+		{
+			startPositionsDictionary.Add(startPositions[i], false);
+			quarters.Add(startPositions[i], Colors.BLACK);
+		}
+
+		for (int j = 0; j < boxPositions.Length; j++)
+		{
+			boxPositionsDictionary.Add(boxPositions[j], false);
+		}
+
+		playerColors.Add(Colors.BLUE, false);
+		playerColors.Add(Colors.GREEN, false);
+		playerColors.Add(Colors.RED, false);
+		playerColors.Add(Colors.YELLOW, false);
+	}
+
+    private void SetStartPositionsPlayers()
     {
         for(int i=0;i<players.Length;i++)
         {
             _currentPlayer = players[i].GetComponent<PlayerController>();
+			_currentPlayer.Init();
             int randPos,randColor;
             //get random start position and set Player to this transform.position
             do
@@ -81,7 +95,7 @@ public class LevelGenerator : MonoBehaviour {
         }
     }
 
-    public void SetStartPositionBoxes()
+    private void SetStartPositionBoxes()
     {
         for(int j=0;j<boxes.Length;j++)
         {

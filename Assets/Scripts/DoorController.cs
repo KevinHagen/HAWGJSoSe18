@@ -8,7 +8,7 @@ public class DoorController : MonoBehaviour {
     public Colors Color { get; set; }
 
 	// Use this for initialization
-	void Start () {
+	public void Init () {
         meshRend = GetComponent<MeshRenderer>();
 	}
 
