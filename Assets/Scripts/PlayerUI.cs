@@ -4,8 +4,6 @@ using UnityEngine.UI;
 using UnityEngine;
 
 public class PlayerUI : MonoBehaviour {
-
-	public Canvas canvas;
 	[Tooltip("Must have same order as Colors Enum")]
 	public Sprite[] powerupIcons; //Must Have same order as Colors Enum
 	public Sprite[] keySprites; //-||-
@@ -16,6 +14,12 @@ public class PlayerUI : MonoBehaviour {
 	public Image[] colorFields;
 
 	public Text holdTimerText;
+
+	private void Start()
+	{
+		transform.LookAt(Camera.main.transform);
+		transform.Rotate(Vector3.up, 180);
+	}
 
 	public void SetKeyColor(Colors newColor)
 	{

@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour {
 
 	private void Awake()
 	{
-		PlayerUI = GetComponent<PlayerUI>();
+		PlayerUI = GetComponentInChildren<PlayerUI>();
 	}
 
     void Update()
