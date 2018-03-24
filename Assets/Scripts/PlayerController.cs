@@ -25,30 +25,7 @@ public class PlayerController : MonoBehaviour {
 		if (CurrentPowerUp == null) return;
 
 		needsTwoColors = CurrentPowerUp.GetType() == typeof(AbstractMultipleTargetPowerUp);
-
-		if (CurrentPowerUp.TargetColor != Colors.IDLE && !needsTwoColors) return;
-
-		Colors colorPressed = Colors.IDLE;
-		if(Input.GetButtonDown("Blue"))
-		{
-			PlayerUI.HighlightColorField(0);
-			colorPressed = Colors.BLUE;
-		}
-		if(Input.GetButtonDown("Red"))
-		{
-			PlayerUI.HighlightColorField(1);
-			colorPressed = Colors.RED;
-		}
-		if(Input.GetButtonDown("Yellow"))
-		{
-			PlayerUI.HighlightColorField(2);
-			colorPressed = Colors.YELLOW;
-		}
-		if(Input.GetButtonDown("Green"))
-		{
-			PlayerUI.HighlightColorField(3);
-			colorPressed = Colors.GREEN;
-		}
+		Colors colorPressed = CheckForColorInput();
 
 		if (needsTwoColors)
 		{
@@ -68,6 +45,32 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	private Colors CheckForColorInput()
+	{
+		Colors colorPressed = Colors.IDLE;
+		if (Input.GetButtonDown("Blue"))
+		{
+			PlayerUI.HighlightColorField(0);
+			colorPressed = Colors.BLUE;
+		}
+		if (Input.GetButtonDown("Red"))
+		{
+			PlayerUI.HighlightColorField(1);
+			colorPressed = Colors.RED;
+		}
+		if (Input.GetButtonDown("Yellow"))
+		{
+			PlayerUI.HighlightColorField(2);
+			colorPressed = Colors.YELLOW;
+		}
+		if (Input.GetButtonDown("Green"))
+		{
+			PlayerUI.HighlightColorField(3);
+			colorPressed = Colors.GREEN;
+		}
+		return colorPressed;
+	}
+
 	public Colors Color
     {
 		get
@@ -78,7 +81,10 @@ public class PlayerController : MonoBehaviour {
         {
             _color = value;
             //set different textures for color here
-            Debug.Log(this+", "+_color);
+			if(_color != Colors.BLACK || _color != Colors.RAINBOW || _color != Colors.IDLE)
+			{
+				PlayerUI.SetKeyColor(_color);
+			}
         }
     }
 }
