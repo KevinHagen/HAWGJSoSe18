@@ -5,9 +5,30 @@ using UnityEngine;
 public class PowerUpPrefab : MonoBehaviour {
 
     public Box.Index index;
-	
-	// Update is called once per frame
-	void Update () {
+    public Material[] animationMaterials; 
+
+    private MeshRenderer meshRenderer;
+
+    private void Start()
+    {
+        meshRenderer = GetComponent<MeshRenderer>();
+        StartCoroutine("StartAnimation");
+    }
+
+    private IEnumerator StartAnimation()
+    {
+        int counter=0;
+        while(true)
+        {
+            meshRenderer.material = animationMaterials[counter % animationMaterials.Length];
+            counter++;
+            yield return new WaitForSeconds(0.2f);
+        }
+        
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 
