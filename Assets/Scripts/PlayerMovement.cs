@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour {
                 0,
                 (mainCamera.transform.forward.z * inputZ + mainCamera.transform.right.z * inputsX))
                 * speed * Time.deltaTime;
+        //Debug.DrawLine(Vector3.zero, mainCamera.transform.right);
         rigid.velocity = movement;
     }
 
