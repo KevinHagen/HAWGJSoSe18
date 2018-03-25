@@ -32,8 +32,10 @@ public class Thunder : AbstractSingleTargetPowerUp
 	private void DropKey()
 	{
         Key key = player.GetComponentInChildren<Key>();
-        key.StartCoroutine("KeyFly");
+        player.currentKey.gameObject.SetActive(true);
+        player.currentKey.StartCoroutine("KeyFly");
         player.HasKey = false;
+        player.currentKey = null;
 	}
 	
 }

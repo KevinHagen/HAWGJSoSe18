@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
 
 	public PlayerMovement playerMovement;
 	public int playerNumber;
+    public Key currentKey;
 
     private Colors _color;
 	private bool needsTwoColors;
