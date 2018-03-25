@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour {
     [Tooltip("Order: Yellow, Red, Green, Blue")]
     public Material[] bodyMaterials,latchMaterials,wheelMaterials;
     public Material[] rainbowMaterials;
+    public GameObject thunderAnimationPrefab;
 
     private Colors _color;
 	private bool needsTwoColors;
@@ -52,6 +53,15 @@ public class PlayerController : MonoBehaviour {
 		CurrentPowerUp.PunishPlayer();
 		CurrentPowerUp = null;
 	}
+
+    public IEnumerator StartThunderAnimation()
+    {
+        GameObject thunder=Instantiate(thunderAnimationPrefab, transform);
+        transform.LookAt(Camera.main.transform);
+        yield return new WaitForSeconds(2f);
+        Destroy(thunder.gameObject);
+
+    }
 
     void Update()
 	{
