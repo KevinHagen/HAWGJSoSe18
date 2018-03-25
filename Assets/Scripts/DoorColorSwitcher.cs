@@ -15,6 +15,7 @@ public class DoorColorSwitcher : AbstractMultipleTargetPowerUp
 	{
 		List<DoorController> targetDoor = DetermineDoorTargets(TargetColor);
 		List<DoorController> secondTargetDoor = DetermineDoorTargets(SecondTargetColor);
+        GameObject.Find("AudioManager").GetComponent<AudioManager>().PlaySwitchDoorColorSound();
 
 		foreach(DoorController door in targetDoor)
 		{

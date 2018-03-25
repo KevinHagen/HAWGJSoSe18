@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour {
     public Material[] playerMaterials;
 
 	public PlayerMovement playerMovement;
+	public ParticleSystem changeColorParticles;
+	public ParticleSystem wheelDustLeft;
+	public ParticleSystem wheelDustRight;
 	public int playerNumber;
     public Key currentKey;
     public GameObject playerBody, playerLatch;
@@ -156,6 +159,7 @@ public class PlayerController : MonoBehaviour {
             gameObject.layer = LayerMask.NameToLayer("Default");
             //set different textures for color here
             isRainbow = false;
+            GetComponent<PlayerAudioManager>().PlaySwitchPlayerColorSound();
 
             if (_color != Colors.IDLE)
 			{
@@ -166,7 +170,7 @@ public class PlayerController : MonoBehaviour {
                 {
                     playerWheels[i].GetComponent<MeshRenderer>().material = wheelMaterials[(int)_color];
                 }
-
+				changeColorParticles.Play();
                 switch (_color)
                 {
                     case Colors.BLUE:

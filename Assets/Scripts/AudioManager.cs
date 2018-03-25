@@ -13,21 +13,21 @@ public class AudioManager : MonoBehaviour {
     public AudioClip[] switchPlayerColor;
     public AudioClip[] switchDoorColor;
 
+    AudioSource audioS;
+
     private void Awake()
     {
-        if (INSTANCE != null && INSTANCE != this)
-            Destroy(gameObject);
-        else
+        if (INSTANCE == null)
             INSTANCE = this;
+        else if (INSTANCE != this)
+            Destroy(this);
+        audioS = GetComponent<AudioSource>();
     }
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public void PlaySwitchDoorColorSound()
+    {
+        audioS.clip = switchDoorColor[Random.Range(0, switchDoorColor.Length)];
+        audioS.Play();
+    }
+
 }

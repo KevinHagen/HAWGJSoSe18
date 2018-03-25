@@ -7,7 +7,7 @@ public class PlayerAudioManager : MonoBehaviour {
     AudioSource audioS;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         audioS = GetComponent<AudioSource>();
 	}
 	
@@ -25,6 +25,12 @@ public class PlayerAudioManager : MonoBehaviour {
     public void PlayPickUpKeySound ()
     {
         audioS.clip = AudioManager.INSTANCE.pickUpKey;
+        audioS.Play();
+    }
+
+    public void PlaySwitchPlayerColorSound ()
+    {
+        audioS.clip = AudioManager.INSTANCE.switchPlayerColor[Random.Range(0, AudioManager.INSTANCE.switchPlayerColor.Length)];
         audioS.Play();
     }
 }
