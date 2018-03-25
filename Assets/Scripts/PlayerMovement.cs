@@ -25,8 +25,15 @@ public class PlayerMovement : MonoBehaviour {
                 0,
                 (mainCamera.transform.forward.z * verticalPush * inputZ + mainCamera.transform.right.z * inputsX))
                 * speed * Time.deltaTime;
-        Debug.DrawLine(Vector3.zero, mainCamera.transform.right);
-        rigid.velocity = movement;
+        
+        if(movement!=new Vector3(0,0,0))
+        {
+            Debug.Log("movement: " + movement);
+            rigid.velocity = movement;
+            Debug.DrawLine(transform.position, transform.position+movement, Color.red, 0.5f);
+            transform.rotation.SetLookRotation(movement);
+            Debug.DrawLine(transform.position, transform.forward, Color.cyan, 0.5f);
+        }
     }
 
 
