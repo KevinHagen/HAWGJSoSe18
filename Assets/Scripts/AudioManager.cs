@@ -17,10 +17,10 @@ public class AudioManager : MonoBehaviour {
 
     private void Awake()
     {
-        if (INSTANCE != null && INSTANCE != this)
-            Destroy(gameObject);
-        else
+        if (INSTANCE == null)
             INSTANCE = this;
+        else if (INSTANCE != this)
+            Destroy(this);
         audioS = GetComponent<AudioSource>();
     }
 
