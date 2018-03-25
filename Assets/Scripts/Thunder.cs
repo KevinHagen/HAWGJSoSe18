@@ -19,7 +19,8 @@ public class Thunder : AbstractSingleTargetPowerUp
 		player.Color = Colors.BLACK;
 		if(player.HasKey)
 			DropKey();
-		//TODO Animation/Partikel spielen
+        //TODO Animation/Partikel spielen
+        player.StartCoroutine("StartThunderAnimation");
 		player.StartCoroutine(WaitForPlayerReset());
 	}
 
@@ -36,6 +37,7 @@ public class Thunder : AbstractSingleTargetPowerUp
         player.currentKey.StartCoroutine("KeyFly");
         player.HasKey = false;
         player.currentKey = null;
+
 	}
 	
 }
