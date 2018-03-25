@@ -14,10 +14,16 @@ public class PlayerController : MonoBehaviour {
 	public PlayerMovement playerMovement;
 	public int playerNumber;
     public Key currentKey;
+    public GameObject playerBody, playerLatch;
+    public GameObject[] playerWheels;
+    [Tooltip("Order: Yellow, Red, Green, Blue")]
+    public Material[] bodyMaterials,latchMaterials,wheelMaterials;
+    public Material[] rainbowMaterials;
 
     private Colors _color;
 	private bool needsTwoColors;
 	private int holdTimeLeft;
+    private bool isRainbow;
 
 	private string GREEN_BUTTON = "Green";
 	private string BLUE_BUTTON = "Blue";
@@ -139,10 +145,18 @@ public class PlayerController : MonoBehaviour {
             _color = value;
             gameObject.layer = LayerMask.NameToLayer("Default");
             //set different textures for color here
+            isRainbow = false;
 
             if (_color != Colors.IDLE)
 			{
                 GetComponent<MeshRenderer>().material = playerMaterials[(int)_color];
+                playerBody.GetComponent<MeshRenderer>().material = bodyMaterials[(int)_color];
+                playerLatch.GetComponent<MeshRenderer>().material = latchMaterials[(int)_color];
+                for(int i=0;i<playerWheels.Length;i++)
+                {
+                    playerWheels[i].GetComponent<MeshRenderer>().material = wheelMaterials[(int)_color];
+                }
+
                 switch (_color)
                 {
                     case Colors.BLUE:
@@ -159,9 +173,24 @@ public class PlayerController : MonoBehaviour {
                         break;
 					case Colors.RAINBOW:
 						gameObject.layer = LayerMask.NameToLayer("Rainbow");
+                        isRainbow = true;
+                        StartCoroutine("StartRainbowColors");
 						break;
                 }
  			}
         }
+    }
+
+    public IEnumerator StartRainbowColors()
+    {
+        MeshRenderer meshRenderer = playerBody.GetComponent<MeshRenderer>();
+        int counter=0;
+        while(isRainbow)
+        {
+            meshRenderer.material = rainbowMaterials[counter % rainbowMaterials.Length];
+            counter++;
+            yield return new WaitForSeconds(0.5f);
+        }
+        
     }
 }

@@ -17,11 +17,18 @@ public class PlayerUI : MonoBehaviour {
 
 	public Text holdTimerText;
 
-	private void Awake()
+    private Quaternion lookAtCamera;
+
+    private void Awake()
+    {
+        transform.LookAt(Camera.main.transform);
+        transform.Rotate(Vector3.up, 180);
+        lookAtCamera = transform.rotation;
+    }
+
+    private void Update()
 	{
-		transform.LookAt(Camera.main.transform);
-		transform.Rotate(Vector3.up, 180);
-        
+        transform.rotation = lookAtCamera;
 	}
 
 	public void SetKeyColor(Colors newColor)
