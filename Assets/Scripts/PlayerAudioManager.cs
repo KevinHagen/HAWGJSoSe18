@@ -5,10 +5,12 @@ using UnityEngine;
 public class PlayerAudioManager : MonoBehaviour {
 
     AudioSource audioS;
+    private bool firstColorSwitchAhead;
 
 	// Use this for initialization
 	void Awake () {
         audioS = GetComponent<AudioSource>();
+        firstColorSwitchAhead = true;
 	}
 	
 	// Update is called once per frame
@@ -30,7 +32,13 @@ public class PlayerAudioManager : MonoBehaviour {
 
     public void PlaySwitchPlayerColorSound ()
     {
-        audioS.clip = AudioManager.INSTANCE.switchPlayerColor[Random.Range(0, AudioManager.INSTANCE.switchPlayerColor.Length)];
-        audioS.Play();
+        if (!firstColorSwitchAhead)
+        {
+            audioS.clip = AudioManager.INSTANCE.switchPlayerColor[Random.Range(0, AudioManager.INSTANCE.switchPlayerColor.Length)];
+            audioS.Play();
+        } else
+        {
+            firstColorSwitchAhead = false;
+        }
     }
 }
