@@ -30,7 +30,6 @@ public class PlayerMovement : MonoBehaviour {
         {
             rigid.velocity = movement;
             Debug.DrawLine(transform.position, transform.position+movement, Color.red, 0.5f);
-            Debug.DrawRay(transform.position,movement, Color.green);
             transform.rotation = Quaternion.LookRotation(movement);
             Debug.DrawLine(transform.position, transform.position+transform.forward, Color.cyan, 0.5f);
         }
