@@ -21,7 +21,8 @@ public class Box : MonoBehaviour {
     public Colors quarter;
     public GameObject powerUpPrefab;
     public GameObject keyPrefab;
-    
+    [Tooltip("order: Yellow,Red,Green,Blue")]
+    public Material[] keyMaterials;
     
 
     private void OnTriggerStay(Collider other)
@@ -71,7 +72,12 @@ public class Box : MonoBehaviour {
 
     private void TransferData(GameObject spawnObject,Index index,Colors color)
     {
-        spawnObject.GetComponent<Key>().index = index;
-        spawnObject.GetComponent<Key>().color = color;
+        Key key = spawnObject.GetComponent<Key>();
+        key.index = index;
+        key.color = color;
+        foreach(GameObject go in key.parts)
+        {
+            go.GetComponent<MeshRenderer>().material = keyMaterials[(int)color];
+        }
     }
 }

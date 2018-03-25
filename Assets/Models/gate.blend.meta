@@ -1,0 +1,145 @@
+fileFormatVersion: 2
+guid: 663a511810c4a214a801642bb9a26f4a
+timeCreated: 1521938208
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Bogen
+    100002: //RootNode
+    100004: saeule1
+    100006: saeule2
+    100008: saeule3
+    100010: saeule4
+    100012: saeule5
+    100014: saeule6
+    100016: saeule7
+    100018: saeule8
+    100020: Wand1
+    400000: Bogen
+    400002: //RootNode
+    400004: saeule1
+    400006: saeule2
+    400008: saeule3
+    400010: saeule4
+    400012: saeule5
+    400014: saeule6
+    400016: saeule7
+    400018: saeule8
+    400020: Wand1
+    2100000: unnamed
+    2100002: None__GateTex2_png
+    2100004: None__WallTex_png
+    2100006: None__GateTex_png
+    2300000: Bogen
+    2300002: saeule1
+    2300004: saeule2
+    2300006: saeule3
+    2300008: saeule4
+    2300010: saeule5
+    2300012: saeule6
+    2300014: saeule7
+    2300016: saeule8
+    2300018: Wand1
+    3300000: Bogen
+    3300002: saeule1
+    3300004: saeule2
+    3300006: saeule3
+    3300008: saeule4
+    3300010: saeule5
+    3300012: saeule6
+    3300014: saeule7
+    3300016: saeule8
+    3300018: Wand1
+    4300000: saeule8
+    4300002: saeule7
+    4300004: Bogen
+    4300006: saeule6
+    4300008: saeule5
+    4300010: Wand1
+    4300012: saeule4
+    4300014: saeule2
+    4300016: saeule3
+    4300018: saeule1
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

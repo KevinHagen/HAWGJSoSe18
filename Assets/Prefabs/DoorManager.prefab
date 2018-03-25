@@ -52,6 +52,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   redDoor: {fileID: 2100000, guid: 6a00e1afedbea5e419f892a392c8062f, type: 2}
+  redRoof: {fileID: 2100000, guid: 9ad646969c464de4cbdcabf9772dfe23, type: 2}
   greenDoor: {fileID: 2100000, guid: 24b70f71438c2784eaef76dcc6d19b3f, type: 2}
+  greenRoof: {fileID: 2100000, guid: 6c0007bc10a6f4044bfd5e9483aa8f45, type: 2}
   blueDoor: {fileID: 2100000, guid: 7ee3fb70eea91694ba3a751181695b7f, type: 2}
+  blueRoof: {fileID: 2100000, guid: a2dff36ebffefab488574bb3dc7707c2, type: 2}
   yellowDoor: {fileID: 2100000, guid: 6d74fd98155310e42a81df0f01e51ce0, type: 2}
+  yellowRoof: {fileID: 2100000, guid: a0f98c68488ceb14b88e2c682f5fd959, type: 2}

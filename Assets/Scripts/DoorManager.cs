@@ -10,10 +10,11 @@ public class DoorManager : MonoBehaviour
 
     Dictionary<DoorController, bool> doorColorDictionary;
     public Dictionary<Colors, Material> doorMaterialDictionary;
-    public Material redDoor;
-    public Material greenDoor;
-    public Material blueDoor;
-    public Material yellowDoor;
+    public Dictionary<Colors, Material> roofMaterialDictionary;
+    public Material redDoor,redRoof;
+    public Material greenDoor,greenRoof;
+    public Material blueDoor,blueRoof;
+    public Material yellowDoor,yellowRoof;
 
     public void Init()
     {
@@ -31,11 +32,16 @@ public class DoorManager : MonoBehaviour
 	{
         doorColorDictionary = new Dictionary<DoorController, bool>();
         doorMaterialDictionary = new Dictionary<Colors, Material>();
+        roofMaterialDictionary = new Dictionary<Colors, Material>();
         doorMaterialDictionary.Add(Colors.BLUE, blueDoor);
         doorMaterialDictionary.Add(Colors.RED, redDoor);
         doorMaterialDictionary.Add(Colors.YELLOW, yellowDoor);
 		doorMaterialDictionary.Add(Colors.GREEN, greenDoor);
-	}
+        roofMaterialDictionary.Add(Colors.BLUE, blueRoof);
+        roofMaterialDictionary.Add(Colors.RED, redRoof);
+        roofMaterialDictionary.Add(Colors.YELLOW, yellowRoof);
+        roofMaterialDictionary.Add(Colors.GREEN, greenRoof);
+    }
 
 	private void GenerateDoors ()
     {
