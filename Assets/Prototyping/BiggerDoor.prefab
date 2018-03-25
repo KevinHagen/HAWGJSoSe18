@@ -906,7 +906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gateRoof: {fileID: 1233495717055254}
-  changeColorParticles: {fileID: 0}
+  changeColorParticles: {fileID: 198085601197892398}
 --- !u!198 &198085601197892398
 ParticleSystem:
   m_ObjectHideFlags: 1
