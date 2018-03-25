@@ -17,10 +17,11 @@ public class PlayerUI : MonoBehaviour {
 
 	public Text holdTimerText;
 
-	private void Start()
+	private void Awake()
 	{
 		transform.LookAt(Camera.main.transform);
 		transform.Rotate(Vector3.up, 180);
+        
 	}
 
 	public void SetKeyColor(Colors newColor)

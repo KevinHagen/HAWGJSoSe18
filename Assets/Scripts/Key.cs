@@ -8,8 +8,8 @@ public class Key : MonoBehaviour {
     public Box.Index index;
     public Texture[] textures;
     public float  maxDistanceToWall=3;
-    public float minFlyRange=3, maxFlyRange=5;
-    public float flightHight = 5,flightSpeed=0.5f;
+    public float minFlyRange=1, maxFlyRange=3;
+    public float flightHight = 5,flightSpeed=1f;
     public GameObject[] parts;
     
 
