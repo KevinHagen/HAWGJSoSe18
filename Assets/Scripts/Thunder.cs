@@ -14,6 +14,10 @@ public class Thunder : AbstractSingleTargetPowerUp
 	public override void ExecutePowerUp()
 	{
 		player = DeterminePlayerTarget(TargetColor);
+		if(player == null)
+		{
+			return;
+		}
         player.IsStunned = true;
 		tempColor = player.Color;
 		player.Color = Colors.BLACK;

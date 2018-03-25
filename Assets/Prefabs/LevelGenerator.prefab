@@ -145,7 +145,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   powerUpChance:
-  - 0.25
-  - 0.25
-  - 0.25
-  - 0.18
+  - 0.27
+  - 0.37
+  - 0.17
+  - 0.1

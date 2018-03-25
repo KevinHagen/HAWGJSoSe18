@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour {
 			holdTimeLeft--;
 		}
 		PlayerUI.holdTimerText.text = "" + holdTimeLeft;
+		if (CurrentPowerUp == null) yield break;
 		CurrentPowerUp.TargetColor = _color;
 		CurrentPowerUp.PunishPlayer();
 		CurrentPowerUp = null;
@@ -99,7 +100,7 @@ public class PlayerController : MonoBehaviour {
             else                                                //target color is already set
             {
                 multiTargetPowerUp.SecondTargetColor = colorPressed;        //second target color gets set to colorPressed
-				StopAllCoroutines();
+				StopCoroutine("HoldTimer");
                 multiTargetPowerUp.ExecutePowerUp();
                 CurrentPowerUp = null;
             }
@@ -107,7 +108,7 @@ public class PlayerController : MonoBehaviour {
 		else        //power Up needs only one input/color
 		{
 			CurrentPowerUp.TargetColor = colorPressed;
-			StopAllCoroutines();
+			StopCoroutine("HoldTimer");
 			CurrentPowerUp.ExecutePowerUp();
 			CurrentPowerUp = null;
 		}

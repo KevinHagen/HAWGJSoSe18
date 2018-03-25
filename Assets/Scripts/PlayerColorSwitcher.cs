@@ -16,7 +16,9 @@ public class PlayerColorSwitcher : AbstractMultipleTargetPowerUp
     public override void ExecutePowerUp()
 	{
 		player = DeterminePlayerTarget(TargetColor);
+		if (player == null) return;
 		secondPlayer = DeterminePlayerTarget(SecondTargetColor);
+		if (secondPlayer == null) return;
 
 		tempColor = player.Color;
 		player.Color = secondPlayer.Color;

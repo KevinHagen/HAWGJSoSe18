@@ -378,6 +378,7 @@ GameObject:
   - component: {fileID: 4590794842886292}
   - component: {fileID: 95777335393193674}
   - component: {fileID: 114941109145498260}
+  - component: {fileID: 65260732669928654}
   m_Layer: 0
   m_Name: FinalGate3Mesh
   m_TagString: Untagged
@@ -1841,6 +1842,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1653291691950700}
   m_Mesh: {fileID: 4300036, guid: 6c5152f550f44bc409bf914bc5764a2c, type: 3}
+--- !u!65 &65260732669928654
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1856800698428744}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.89, y: 1, z: 1.5}
+  m_Center: {x: 0, y: 0, z: -0.81}
 --- !u!95 &95777335393193674
 Animator:
   serializedVersion: 3
