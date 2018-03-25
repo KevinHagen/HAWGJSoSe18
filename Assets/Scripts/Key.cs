@@ -24,6 +24,7 @@ public class Key : MonoBehaviour {
                 playerController.PlayerUI.SetKeyColor(color);
                 playerController.currentKey = this;
                 gameObject.transform.parent = playerController.transform;
+                other.GetComponent<PlayerAudioManager>().PlayPickUpKeySound();
                 gameObject.SetActive(false);
             }
             

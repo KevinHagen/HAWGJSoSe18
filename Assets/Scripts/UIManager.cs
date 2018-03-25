@@ -15,6 +15,10 @@ public class UIManager : MonoBehaviour {
 
 	private int currentMenuItemIndex;
 
+    AudioSource audioS;
+    public AudioClip menuSelection;
+    public AudioClip menuConfirmation;
+
 	private void Awake()
 	{
 		if (INSTANCE != null && INSTANCE != this)
@@ -24,6 +28,7 @@ public class UIManager : MonoBehaviour {
 
 		currentMenuItemIndex = 0;
 		menuCursor.rectTransform.position = menuPositions[currentMenuItemIndex].position;
+        audioS = GetComponent<AudioSource>();
 	}
 
 	private void Update()
@@ -31,17 +36,22 @@ public class UIManager : MonoBehaviour {
 		if(Input.GetAxisRaw("Vertical1") == -1)
 		{
 			currentMenuItemIndex++;
-			if (currentMenuItemIndex == menuPositions.Length)
-				currentMenuItemIndex--;
+            if (currentMenuItemIndex == menuPositions.Length)
+                currentMenuItemIndex--;
+            else
+                PlayMenuSelection();
 		}
 		if(Input.GetAxisRaw("Vertical1") == 1)
 		{
 			currentMenuItemIndex--;
-			if (currentMenuItemIndex < 0)
-				currentMenuItemIndex = 0;
+            if (currentMenuItemIndex < 0)
+                currentMenuItemIndex = 0;
+            else
+                PlayMenuSelection();
 		}
 		if(Input.GetAxisRaw("Activate1") == 1)
 		{
+            PlayMenuConfirmation();
 			buttons[currentMenuItemIndex].onClick.Invoke();
 		}
 
@@ -52,6 +62,18 @@ public class UIManager : MonoBehaviour {
 	{
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 	}
+
+    private void PlayMenuSelection ()
+    {
+        audioS.clip = menuSelection;
+        audioS.Play();
+    }
+
+    private void PlayMenuConfirmation ()
+    {
+        audioS.clip = menuConfirmation;
+        audioS.Play();
+    }
 
 	public void Quit()
 	{

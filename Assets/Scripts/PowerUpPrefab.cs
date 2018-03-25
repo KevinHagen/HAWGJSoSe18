@@ -59,6 +59,7 @@ public class PowerUpPrefab : MonoBehaviour {
 				player.StartCoroutine(player.HoldTimer(powerUp.HoldTime));
 
             player.CurrentPowerUp = powerUp;
+            other.gameObject.GetComponent<PlayerAudioManager>().PlayPickUpPowerupSound();
             Destroy(gameObject);
         }
     }
