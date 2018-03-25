@@ -65,7 +65,8 @@ public class GameManager : MonoBehaviour {
 				break;
 			case 3:
 				GenerateFinalDoors(1, colorList, finalDoorPrefabs[0]);
-				GenerateFinalDoors(2, colorList, finalDoorPrefabs[1]);
+                GenerateFinalDoors(1, colorList, finalDoorPrefabs[0]);
+                GenerateFinalDoors(2, colorList, finalDoorPrefabs[1]);
 				break;
 			case 4:
 				GenerateFinalDoors(1, colorList, finalDoorPrefabs[0]);

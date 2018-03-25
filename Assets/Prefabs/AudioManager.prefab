@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1442218184535974}
+  m_IsPrefabParent: 1
+--- !u!1 &1442218184535974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4502710317592716}
+  - component: {fileID: 114132278344654338}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4502710317592716
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1442218184535974}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.3574219, y: -3.6367188, z: -4.78125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114132278344654338
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1442218184535974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b887e9a0dcafb80478cb893fd5c7987a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameplayTheme: {fileID: 8300000, guid: 0afadf5e8f605a14ba0129f32672bf33, type: 3}
+  menuTheme: {fileID: 8300000, guid: f4f860f815f644049af25cb657362328, type: 3}
+  menuSelection: {fileID: 8300000, guid: 2359e2e2c064cb6438c875fde3b46263, type: 3}
+  menuConfirmation: {fileID: 8300000, guid: c71d2a9d027c3e0409991321017aeec5, type: 3}
+  pickUpPowerUp: {fileID: 8300000, guid: f70ed467d175f3848b8196f221d54ad8, type: 3}
+  pickUpKey: {fileID: 8300000, guid: 0e8b6607a12b53a4eb1aa58a91c355bc, type: 3}
+  switchPlayerColor:
+  - {fileID: 8300000, guid: 002a58ec49420c14d9182c4df1967f74, type: 3}
+  - {fileID: 8300000, guid: bcd17ff9113cbc54ba7ac0919278c240, type: 3}
+  - {fileID: 8300000, guid: 781adb5722102b9488914264be463eb1, type: 3}
+  - {fileID: 8300000, guid: dd916b0f5d5e1f544b2de882a83270ca, type: 3}
+  - {fileID: 8300000, guid: a67488da696c78943bbd4a17c8022400, type: 3}
+  - {fileID: 8300000, guid: d55e42a5f7d52034c828e15eba0bffc9, type: 3}
+  - {fileID: 8300000, guid: b1ec9c0393ac4d04fa4c347d5deb99e0, type: 3}
+  switchDoorColor:
+  - {fileID: 8300000, guid: 5d794b458d92fcb4b8c8460fd8edb812, type: 3}
+  - {fileID: 8300000, guid: 18b45a76600703b44b2d3155178f1e6a, type: 3}
+  - {fileID: 8300000, guid: f801c0adaa40bf84aa6d15c7f2c91a38, type: 3}
+  - {fileID: 8300000, guid: 623363d5491a559418edb1df5b77fb19, type: 3}
+  - {fileID: 8300000, guid: 92779a5793969f645ba97271ca02fedc, type: 3}
+  - {fileID: 8300000, guid: 81a148abaac973e40995f2b03fd05229, type: 3}

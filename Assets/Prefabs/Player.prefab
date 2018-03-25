@@ -840,6 +840,8 @@ GameObject:
   - component: {fileID: 114774736634713582}
   - component: {fileID: 114326367339887796}
   - component: {fileID: 54478558619969224}
+  - component: {fileID: 82606224531906132}
+  - component: {fileID: 114576048227282370}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3845,6 +3847,86 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!82 &82606224531906132
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1729268088987600}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95052251880475646
 Animator:
   serializedVersion: 3
@@ -4030,7 +4112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9485294, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.03137255, b: 0.03137255, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4061,6 +4143,17 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114576048227282370
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1729268088987600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 699e9595083134f4e98e27280e212a23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114577229432350096
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4073,7 +4166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.047413707, g: 0, b: 0.625, a: 1}
+  m_Color: {r: 0.02745098, g: 0.6862745, b: 0.99607843, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4100,7 +4193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.9724138, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 0.02745098, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4127,7 +4220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.02621699, g: 0.3455882, b: 0, a: 1}
+  m_Color: {r: 0.30588236, g: 1, b: 0.023529412, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4175,21 +4268,21 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 0e182f6e308d9e34caf7238ebc82609c, type: 2}
   - {fileID: 2100000, guid: e9a4eb2e98582714c99d88699b6f4dba, type: 2}
   - {fileID: 2100000, guid: 798d0ebd32afef9438d8adda99802fa0, type: 2}
-  - {fileID: 2100000, guid: d7386c4876f511547812fff09b3a8dd2, type: 2}
+  - {fileID: 2100000, guid: 6389e82f972146e4b960ef271cd1c1ee, type: 2}
   - {fileID: 2100000, guid: 0b5e96f385753424f949999af86512ed, type: 2}
   latchMaterials:
   - {fileID: 2100000, guid: 0d5ed9ebdf4ed3a42bbe1ec12e774bdd, type: 2}
   - {fileID: 2100000, guid: 4b9fa2248f7b8124eb45ed4d7e9af7c2, type: 2}
   - {fileID: 2100000, guid: 1f08c2aa48780e247851d7c0cb6a5691, type: 2}
   - {fileID: 2100000, guid: 76e0771ef5cee754292a6de7b5dc5606, type: 2}
-  - {fileID: 2100000, guid: d7386c4876f511547812fff09b3a8dd2, type: 2}
+  - {fileID: 2100000, guid: 6389e82f972146e4b960ef271cd1c1ee, type: 2}
   - {fileID: 2100000, guid: 1f08c2aa48780e247851d7c0cb6a5691, type: 2}
   wheelMaterials:
   - {fileID: 2100000, guid: 4c1b8079f4c6b634ab1b06bed5774113, type: 2}
   - {fileID: 2100000, guid: f9efd94495dc2834592a7276eae17fc4, type: 2}
   - {fileID: 2100000, guid: 17fb6bbb401d83a4886c1a4097fc48bd, type: 2}
   - {fileID: 2100000, guid: 919ef06624f29b84e8008e25be8994c6, type: 2}
-  - {fileID: 2100000, guid: d7386c4876f511547812fff09b3a8dd2, type: 2}
+  - {fileID: 2100000, guid: 6389e82f972146e4b960ef271cd1c1ee, type: 2}
   - {fileID: 2100000, guid: f9efd94495dc2834592a7276eae17fc4, type: 2}
   rainbowMaterials:
   - {fileID: 2100000, guid: 0b5e96f385753424f949999af86512ed, type: 2}
@@ -4197,6 +4290,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: d26ef3573db94dc45a415cfd70c70992, type: 2}
   - {fileID: 2100000, guid: 712859bf3aceb6c4585ac3e07ce2873a, type: 2}
   - {fileID: 2100000, guid: 87c04056cd7148845a15001b87fa2a05, type: 2}
+  thunderAnimationPrefab: {fileID: 1411978878900980, guid: 1d9e28cdb6cbb98408ef3e092b2dbfa7,
+    type: 2}
 --- !u!114 &114854587606806798
 MonoBehaviour:
   m_ObjectHideFlags: 1
