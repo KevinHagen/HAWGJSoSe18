@@ -21,6 +21,7 @@ public class Key : MonoBehaviour {
             if(playerController.Color==color)
             {
                 playerController.HasKey = true;
+                playerController.PlayerUI.SetKeyColor(color);
                 playerController.currentKey = this;
                 gameObject.transform.parent = playerController.transform;
                 gameObject.SetActive(false);

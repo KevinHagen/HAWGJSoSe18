@@ -15878,16 +15878,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1447510158}
     m_Modifications:
-    - target: {fileID: 114425222557217830, guid: 1f2ea0f4ad3baa949bc00c85ee17a5bd,
-        type: 2}
-      propertyPath: keySprites.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114425222557217830, guid: 1f2ea0f4ad3baa949bc00c85ee17a5bd,
-        type: 2}
-      propertyPath: powerupIcons.Array.size
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4810901531769172, guid: 1f2ea0f4ad3baa949bc00c85ee17a5bd, type: 2}
       propertyPath: m_LocalPosition.x
       value: -7.67099
@@ -15920,9 +15910,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114774736634713582, guid: 1f2ea0f4ad3baa949bc00c85ee17a5bd,
+    - target: {fileID: 224943338389323150, guid: 1f2ea0f4ad3baa949bc00c85ee17a5bd,
         type: 2}
-      propertyPath: playerNumber
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224943338389323150, guid: 1f2ea0f4ad3baa949bc00c85ee17a5bd,
+        type: 2}
+      propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -19301,6 +19296,28 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1674640947}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1683160754 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1065544717871196, guid: 1f2ea0f4ad3baa949bc00c85ee17a5bd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1391206416}
+--- !u!95 &1683160756
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1683160754}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8f688552f174a8e4d86b68da92b9b95d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &1691415402
 Prefab:
   m_ObjectHideFlags: 0
