@@ -7,7 +7,7 @@ public class PlayerAudioManager : MonoBehaviour {
     AudioSource audioS;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         audioS = GetComponent<AudioSource>();
 	}
 	
