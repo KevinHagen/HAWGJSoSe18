@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
     public Material[] playerMaterials;
 
 	public PlayerMovement playerMovement;
+	public PlayerAudioManager playerAudio;
 	public ParticleSystem changeColorParticles;
 	public ParticleSystem wheelDustLeft;
 	public ParticleSystem wheelDustRight;
@@ -40,6 +41,8 @@ public class PlayerController : MonoBehaviour {
 	public void Init()
 	{
 		PlayerUI = GetComponentInChildren<PlayerUI>();
+		playerAudio = GetComponent<PlayerAudioManager>();
+		playerAudio.Init();
 	}
 
 	public IEnumerator HoldTimer(int holdTime)

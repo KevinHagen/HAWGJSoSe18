@@ -6,16 +6,10 @@ public class PlayerAudioManager : MonoBehaviour {
 
     AudioSource audioS;
     private bool firstColorSwitchAhead;
-
-	// Use this for initialization
-	void Awake () {
+	
+	public void Init () {
         audioS = GetComponent<AudioSource>();
         firstColorSwitchAhead = true;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
     public void PlayPickUpPowerupSound ()
