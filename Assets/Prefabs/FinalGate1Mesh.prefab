@@ -394,6 +394,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4827559751960312}
   - component: {fileID: 95388411832786452}
+  - component: {fileID: 114121619758268082}
   m_Layer: 0
   m_Name: FinalGate1Mesh
   m_TagString: Untagged
@@ -712,7 +713,7 @@ Transform:
   m_GameObject: {fileID: 1917343672872110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 16.761013, y: 1, z: 10.063646}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.5, y: 2.5, z: 1.5}
   m_Children:
   - {fileID: 4220739444173178}
   - {fileID: 4630844143906978}
@@ -1713,3 +1714,22 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114121619758268082
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1917343672872110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a1e49ce051098c479af38fb13efd513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyHoleMaterials:
+  - {fileID: 2100000, guid: b4f86181624f3d64bb81c891a3dcce34, type: 2}
+  - {fileID: 2100000, guid: 801a93b6c0737df43b0d93a8188ffe87, type: 2}
+  - {fileID: 2100000, guid: 7e848c3a8b9c3254694ddef2d35f0124, type: 2}
+  - {fileID: 2100000, guid: f989a57a1175cfb4f917c9a00384cc11, type: 2}
+  colorList: 
+  locks:
+  - {fileID: 1143176121519088}

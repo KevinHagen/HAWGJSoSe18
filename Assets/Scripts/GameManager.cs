@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
@@ -7,13 +8,19 @@ public class GameManager : MonoBehaviour {
 	public static GameManager INSTANCE;
 
     public PlayerController[] players;
-	public FinalDoorBehaviour[] finalDoors;
 	public GameObject[] finalDoorPrefabs;
 	public List<Transform> finalDoorSpawns;
     public LevelGenerator levelGenerator;
     public DoorManager doorManager;
 
+	private FinalDoorBehaviour[] finalDoors;
+	private int finalDoorIndex;
 	private Colors[] playerColors = { Colors.YELLOW, Colors.RED, Colors.GREEN, Colors.BLUE };
+
+	public void ReturnToMainMenu()
+	{
+		SceneManager.LoadScene(0);
+	}
 
 	private void Awake()
 	{
@@ -21,7 +28,7 @@ public class GameManager : MonoBehaviour {
 			Destroy(gameObject);
 		else
 			INSTANCE = this;
-
+		finalDoorIndex = 0;
 		InitPlayers();
 		doorManager.Init();
 		levelGenerator.Init(players);
@@ -41,7 +48,6 @@ public class GameManager : MonoBehaviour {
 		List<Colors> colorList = new List<Colors>(playerColors);
 		int amountOfDoors = Random.Range(2, 5);
 		finalDoors = new FinalDoorBehaviour[amountOfDoors];
-
 		switch(amountOfDoors)
 		{
 			case 2:
@@ -49,34 +55,44 @@ public class GameManager : MonoBehaviour {
 				if(isTwoVsTwo)
 				{
 					GenerateFinalDoors(2, colorList, finalDoorPrefabs[1]);
+					GenerateFinalDoors(2, colorList, finalDoorPrefabs[1]);
 				}
 				else
 				{
 					GenerateFinalDoors(1, colorList, finalDoorPrefabs[0]);
-					GenerateFinalDoors(1, colorList, finalDoorPrefabs[2]);
+					GenerateFinalDoors(3, colorList, finalDoorPrefabs[2]);
 				}
 				break;
 			case 3:
-				GenerateFinalDoors(2, colorList, finalDoorPrefabs[0]);
-				GenerateFinalDoors(1, colorList, finalDoorPrefabs[1]);
+				GenerateFinalDoors(1, colorList, finalDoorPrefabs[0]);
+				GenerateFinalDoors(2, colorList, finalDoorPrefabs[1]);
 				break;
 			case 4:
-				GenerateFinalDoors(amountOfDoors, colorList, finalDoorPrefabs[0]);
+				GenerateFinalDoors(1, colorList, finalDoorPrefabs[0]);
+				GenerateFinalDoors(1, colorList, finalDoorPrefabs[0]);
+				GenerateFinalDoors(1, colorList, finalDoorPrefabs[0]);
+				GenerateFinalDoors(1, colorList, finalDoorPrefabs[0]);
 				break;
+		}
+
+		foreach(FinalDoorBehaviour finalDoor in finalDoors)
+		{
+			if(finalDoor!=null)
+				finalDoor.Init();
 		}
 	}
 
-	private void GenerateFinalDoors(int amountOfDoors, List<Colors> colorList, GameObject doorPrefab)
+	private void GenerateFinalDoors(int amountOfColors, List<Colors> colorList, GameObject doorPrefab)
 	{
-		for (int i = 0; i < amountOfDoors; i++)
+		GameObject finalDoor = Instantiate(doorPrefab, finalDoorSpawns[0].position, finalDoorSpawns[0].rotation);
+		finalDoorSpawns.Remove(finalDoorSpawns[0]);
+		finalDoors[finalDoorIndex] = finalDoor.GetComponent<FinalDoorBehaviour>();
+		for(int j = 0; j < amountOfColors; j++)
 		{
-			GameObject finalDoor = Instantiate(doorPrefab, finalDoorSpawns[i]);
-			finalDoorSpawns.Remove(finalDoorSpawns[i]);
-			//Transform + Rotate setzen
-			finalDoors[i] = finalDoor.GetComponent<FinalDoorBehaviour>();
 			Colors randomColor = colorList[Random.Range(0, colorList.Count)];
 			colorList.Remove(randomColor);
-			finalDoors[i].colorList.Add(randomColor);
+			finalDoors[finalDoorIndex].colorList.Add(randomColor);
 		}
+		finalDoorIndex++;
 	}
 }
