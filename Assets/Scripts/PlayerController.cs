@@ -156,6 +156,7 @@ public class PlayerController : MonoBehaviour {
             gameObject.layer = LayerMask.NameToLayer("Default");
             //set different textures for color here
             isRainbow = false;
+            GetComponent<PlayerAudioManager>().PlaySwitchPlayerColorSound();
 
             if (_color != Colors.IDLE)
 			{

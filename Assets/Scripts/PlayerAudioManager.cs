@@ -27,4 +27,16 @@ public class PlayerAudioManager : MonoBehaviour {
         audioS.clip = AudioManager.INSTANCE.pickUpKey;
         audioS.Play();
     }
+
+    public void PlaySwitchDoorColorSound ()
+    {
+        audioS.clip = AudioManager.INSTANCE.switchDoorColor[Random.Range(0, AudioManager.INSTANCE.switchDoorColor.Length)];
+        audioS.Play();
+    }
+
+    public void PlaySwitchPlayerColorSound ()
+    {
+        audioS.clip = AudioManager.INSTANCE.switchPlayerColor[Random.Range(0, AudioManager.INSTANCE.switchPlayerColor.Length)];
+        audioS.Play();
+    }
 }
