@@ -33,6 +33,7 @@ public class PlayerColorSwitcher : AbstractMultipleTargetPowerUp
 
         if(secondPlayerHasKey)
         {
+            player.PlayerUI.SetKeyColor(SecondTargetColor);
             player.currentKey = secondPlayerKey;
             secondPlayerKey.transform.parent = player.transform;
         }
@@ -42,6 +43,7 @@ public class PlayerColorSwitcher : AbstractMultipleTargetPowerUp
         }
         if(firstPlayerHasKey)
         {
+            secondPlayer.PlayerUI.SetKeyColor(TargetColor);
             secondPlayer.currentKey = firstPlayerKey;
             firstPlayerKey.transform.parent = secondPlayer.transform;
         }
