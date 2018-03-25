@@ -28,11 +28,11 @@ public class PlayerMovement : MonoBehaviour {
         
         if(movement!=new Vector3(0,0,0))
         {
-            Debug.Log("movement: " + movement);
             rigid.velocity = movement;
             Debug.DrawLine(transform.position, transform.position+movement, Color.red, 0.5f);
-            transform.rotation.SetLookRotation(movement);
-            Debug.DrawLine(transform.position, transform.forward, Color.cyan, 0.5f);
+            Debug.DrawRay(transform.position,movement, Color.green);
+            transform.rotation = Quaternion.LookRotation(movement);
+            Debug.DrawLine(transform.position, transform.position+transform.forward, Color.cyan, 0.5f);
         }
     }
 
