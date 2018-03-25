@@ -21,6 +21,7 @@ public class Box : MonoBehaviour {
     public Colors quarter;
     public GameObject powerUpPrefab;
     public GameObject keyPrefab;
+	public ParticleSystem dustParticles;
     [Tooltip("order: Yellow,Red,Green,Blue")]
     public Material[] keyMaterials;
     
@@ -31,6 +32,7 @@ public class Box : MonoBehaviour {
         {
             if(other.gameObject.GetComponent<PlayerController>().activatePressed)
             {
+				dustParticles.Play();
                 GameObject _spawnObject=null;
                 switch(index)
                 {

@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour {
     public Material[] playerMaterials;
 
 	public PlayerMovement playerMovement;
+	public ParticleSystem changeColorParticles;
+	public ParticleSystem wheelDustLeft;
+	public ParticleSystem wheelDustRight;
 	public int playerNumber;
     public Key currentKey;
     public GameObject playerBody, playerLatch;
@@ -167,7 +170,7 @@ public class PlayerController : MonoBehaviour {
                 {
                     playerWheels[i].GetComponent<MeshRenderer>().material = wheelMaterials[(int)_color];
                 }
-
+				changeColorParticles.Play();
                 switch (_color)
                 {
                     case Colors.BLUE:

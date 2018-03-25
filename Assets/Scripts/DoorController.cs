@@ -7,6 +7,7 @@ public class DoorController : MonoBehaviour {
     MeshRenderer meshRend,roofMeshRend;
     public Colors Color { get; set; }
     public GameObject gateRoof;
+	public ParticleSystem changeColorParticles;
 
 
 	// Use this for initialization
@@ -20,6 +21,7 @@ public class DoorController : MonoBehaviour {
         meshRend.material = DoorManager.INSTANCE.doorMaterialDictionary[color];
         roofMeshRend.material = DoorManager.INSTANCE.roofMaterialDictionary[color];
         Color = color;
+		changeColorParticles.Play();
         switch(color)
         {
             case Colors.BLUE:
