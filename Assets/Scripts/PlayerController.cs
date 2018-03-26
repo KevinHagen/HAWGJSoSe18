@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour {
 	public bool IsStunned { get; set; }
 	public AbstractPowerUp CurrentPowerUp { get; set; }
 	public PlayerUI PlayerUI { get; private set; }
-    public bool HasKey /*{ get; set; }*/;
+    public bool HasKey { get; set; }
 	public bool activatePressed;
     public Material[] playerMaterials;
 
