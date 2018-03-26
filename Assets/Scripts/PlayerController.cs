@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour {
 	public bool IsStunned { get; set; }
 	public AbstractPowerUp CurrentPowerUp { get; set; }
 	public PlayerUI PlayerUI { get; private set; }
-    public bool HasKey { get; set; }
+    public bool HasKey /*{ get; set; }*/;
 	public bool activatePressed;
     public Material[] playerMaterials;
 
@@ -24,13 +24,14 @@ public class PlayerController : MonoBehaviour {
     public Material[] bodyMaterials,latchMaterials,wheelMaterials;
     public Material[] rainbowMaterials;
     public GameObject thunderAnimationPrefab;
+    public Animator animator;
 
     private Colors _color;
 	private bool needsTwoColors;
 	private int holdTimeLeft;
     private bool isRainbow;
 
-	private string GREEN_BUTTON = "Green";
+    private string GREEN_BUTTON = "Green";
 	private string BLUE_BUTTON = "Blue";
 	private string YELLOW_BUTTON = "Yellow";
 	private string RED_BUTTON = "Red";

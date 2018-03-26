@@ -876,6 +876,7 @@ GameObject:
   - component: {fileID: 54478558619969224}
   - component: {fileID: 82606224531906132}
   - component: {fileID: 114576048227282370}
+  - component: {fileID: 95743101329894916}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4054,6 +4055,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95743101329894916
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1729268088987600}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b3cea3ebc83bbae4aae84a75d7b29151, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!108 &108181771504976712
 Light:
   m_ObjectHideFlags: 1
@@ -4339,6 +4357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3e50a708303b54b87f2369fa27fce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HasKey: 0
   activatePressed: 0
   playerMaterials:
   - {fileID: 2100000, guid: 6d74fd98155310e42a81df0f01e51ce0, type: 2}
@@ -4348,6 +4367,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: d7386c4876f511547812fff09b3a8dd2, type: 2}
   - {fileID: 2100000, guid: 997811b9bc1631d46888b4902ad1a396, type: 2}
   playerMovement: {fileID: 114326367339887796}
+  playerAudio: {fileID: 0}
   changeColorParticles: {fileID: 198348276770392892}
   wheelDustLeft: {fileID: 198404867140989402}
   wheelDustRight: {fileID: 198600492643841988}
@@ -4388,6 +4408,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 87c04056cd7148845a15001b87fa2a05, type: 2}
   thunderAnimationPrefab: {fileID: 1411978878900980, guid: 1d9e28cdb6cbb98408ef3e092b2dbfa7,
     type: 2}
+  animator: {fileID: 95743101329894916}
 --- !u!114 &114854587606806798
 MonoBehaviour:
   m_ObjectHideFlags: 1
