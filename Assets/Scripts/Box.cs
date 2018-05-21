@@ -24,15 +24,18 @@ public class Box : MonoBehaviour {
 	public ParticleSystem dustParticles;
     [Tooltip("order: Yellow,Red,Green,Blue")]
     public Material[] keyMaterials;
-    
+
+    private PlayerController currentPlayerController;
 
     private void OnTriggerStay(Collider other)
     {
         if(other.tag=="Player")
         {
-            if(other.gameObject.GetComponent<PlayerController>().activatePressed)
+            currentPlayerController = other.gameObject.GetComponent<PlayerController>();
+            if (currentPlayerController.activatePressed)
             {
 				dustParticles.Play();
+                currentPlayerController.playerAudio.PlayDestroyBoxSound();
                 GameObject _spawnObject=null;
                 switch(index)
                 {

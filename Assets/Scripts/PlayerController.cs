@@ -68,14 +68,15 @@ public class PlayerController : MonoBehaviour {
     public IEnumerator StartThunderAnimation()
     {
         GameObject thunder=Instantiate(thunderAnimationPrefab, transform);
-        transform.LookAt(Camera.main.transform);
+        transform.rotation = PlayerUI.lookAtCamera;
         yield return new WaitForSeconds(2f);
         Destroy(thunder.gameObject);
-
+        transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     void Update()
 	{
+        if (GameManager.INSTANCE.gameOver) return;
         //update Player UI
 		PlayerUI.UpdateUI(HasKey, CurrentPowerUp != null); 
         //check if player got stunned by Thunder
@@ -83,7 +84,7 @@ public class PlayerController : MonoBehaviour {
 
         //detect shoulder-buttons and set bool to be used in Box.cs
 		activatePressed = false;
-		if (Input.GetAxisRaw(ACTIVATE_BUTTON + playerNumber) == 1 || Input.GetAxisRaw(ACTIVATE_BUTTON + playerNumber) == -1)
+		if (CurrentPowerUp==null&&(Input.GetAxisRaw(ACTIVATE_BUTTON + playerNumber) == 1 || Input.GetAxisRaw(ACTIVATE_BUTTON + playerNumber) == -1))
 		{
 			activatePressed = true;
 		} 
@@ -124,7 +125,9 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate()
 	{
-		if (IsStunned) return;
+        if (GameManager.INSTANCE.gameOver) return;
+
+        if (IsStunned) return;
         playerMovement.Move( Input.GetAxis(HORIZONTAL_AXIS + playerNumber), Input.GetAxis(VERTICAL_AXIS + playerNumber));
 	}
 

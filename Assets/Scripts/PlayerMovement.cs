@@ -27,7 +27,8 @@ public class PlayerMovement : MonoBehaviour {
                 * speed * Time.deltaTime;
 
         rigid.velocity = movement;
-        transform.rotation = Quaternion.LookRotation(movement);
+        if (movement != new Vector3(0, 0, 0))
+            transform.rotation = Quaternion.LookRotation(movement);
 
         //if(movement!=new Vector3(0,0,0))
         //{

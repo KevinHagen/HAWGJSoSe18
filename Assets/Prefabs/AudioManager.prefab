@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1442218184535974}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.3574219, y: -3.6367188, z: -4.78125}
+  m_LocalPosition: {x: 41.65082, y: 28.478157, z: 10.781355}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -136,6 +136,8 @@ MonoBehaviour:
   menuConfirmation: {fileID: 8300000, guid: c71d2a9d027c3e0409991321017aeec5, type: 3}
   pickUpPowerUp: {fileID: 8300000, guid: f70ed467d175f3848b8196f221d54ad8, type: 3}
   pickUpKey: {fileID: 8300000, guid: 0e8b6607a12b53a4eb1aa58a91c355bc, type: 3}
+  destoyBox: {fileID: 8300000, guid: 92bca32623c9d7d4a909f4f9ed91e416, type: 3}
+  gameOver: {fileID: 8300000, guid: cf5914e2fe5f9b342b492cf0a0994383, type: 3}
   switchPlayerColor:
   - {fileID: 8300000, guid: 002a58ec49420c14d9182c4df1967f74, type: 3}
   - {fileID: 8300000, guid: bcd17ff9113cbc54ba7ac0919278c240, type: 3}

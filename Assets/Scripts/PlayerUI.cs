@@ -17,12 +17,14 @@ public class PlayerUI : MonoBehaviour {
 
 	public Text holdTimerText;
 
-    private Quaternion lookAtCamera;
+    public Quaternion lookAtCamera { get; private set; }
+    
 
-    private void Awake()
+    public void SetUIRotation()
     {
         transform.LookAt(Camera.main.transform);
         transform.Rotate(Vector3.up, 180);
+        transform.rotation = Quaternion.LookRotation(transform.forward, Camera.main.transform.up);
         lookAtCamera = transform.rotation;
     }
 

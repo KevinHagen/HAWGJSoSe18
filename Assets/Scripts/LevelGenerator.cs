@@ -91,6 +91,9 @@ public class LevelGenerator : MonoBehaviour {
 
             //set values for quarters
             quarters[startPositions[randPos]] = (Colors)randColor;
+
+            //set rotation of PlayerUI
+            _currentPlayer.PlayerUI.SetUIRotation();
         }
     }
 

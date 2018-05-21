@@ -49,7 +49,7 @@ public class UIManager : MonoBehaviour {
             else
                 PlayMenuSelection();
 		}
-		if(Input.GetAxisRaw("Activate1") == 1)
+		if(Input.GetButtonDown("Green1"))
 		{
             PlayMenuConfirmation();
 			buttons[currentMenuItemIndex].onClick.Invoke();

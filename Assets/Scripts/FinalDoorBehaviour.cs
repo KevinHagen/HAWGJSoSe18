@@ -70,7 +70,8 @@ public class FinalDoorBehaviour : MonoBehaviour {
             player.animator.SetTrigger("playerWin");
         }
         yield return new WaitForSeconds(3f);
-        GameManager.INSTANCE.ReturnToMainMenu();
+
+        GameManager.INSTANCE.GameOver(colorList);
     }
 
     /*private void OnTriggerStay(Collider other)

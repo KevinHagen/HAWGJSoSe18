@@ -35,4 +35,10 @@ public class PlayerAudioManager : MonoBehaviour {
             firstColorSwitchAhead = false;
         }
     }
+
+    public void PlayDestroyBoxSound()
+    {
+        audioS.clip = AudioManager.INSTANCE.destoyBox;
+        audioS.Play();
+    }
 }

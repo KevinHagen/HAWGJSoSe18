@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
@@ -12,12 +13,38 @@ public class GameManager : MonoBehaviour {
 	public List<Transform> finalDoorSpawns;
     public LevelGenerator levelGenerator;
     public DoorManager doorManager;
+    public GameObject winScreen;
+    public Text winText;
+    public bool gameOver {  get; private set; }
 
 	private FinalDoorBehaviour[] finalDoors;
 	private int finalDoorIndex;
 	private Colors[] playerColors = { Colors.YELLOW, Colors.RED, Colors.GREEN, Colors.BLUE };
 
-	public void ReturnToMainMenu()
+    private void Update()
+    {
+        if(gameOver)
+        {
+            if (Input.GetButtonDown("Green1"))
+            {
+                ReturnToMainMenu();
+            }
+        }
+    }
+
+    public  void GameOver(List<Colors> colorList)
+    {
+        gameOver = true;
+        winScreen.SetActive(true);
+        winText.text="";
+        foreach(Colors color in colorList)
+        {
+            winText.text += color.ToString().ToUpper();
+            winText.text += " wins \n";
+        }
+    }
+
+    public void ReturnToMainMenu()
 	{
 		SceneManager.LoadScene(0);
 	}
@@ -33,6 +60,7 @@ public class GameManager : MonoBehaviour {
 		doorManager.Init();
 		levelGenerator.Init(players);
 		BuildTeams();
+
 	}
 
 	private void InitPlayers()

@@ -10,6 +10,8 @@ public class AudioManager : MonoBehaviour {
     public AudioClip menuConfirmation;
     public AudioClip pickUpPowerUp;
     public AudioClip pickUpKey;
+    public AudioClip destoyBox;
+    public AudioClip gameOver;
     public AudioClip[] switchPlayerColor;
     public AudioClip[] switchDoorColor;
 
@@ -30,4 +32,9 @@ public class AudioManager : MonoBehaviour {
         audioS.Play();
     }
 
+    public void PlayWinSound()
+    {
+        audioS.clip = gameOver;
+        audioS.Play();
+    }
 }
