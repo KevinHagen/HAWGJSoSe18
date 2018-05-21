@@ -13,7 +13,7 @@ public class PlayerColorSwitcher : AbstractMultipleTargetPowerUp
 		SecondTargetColor = Colors.IDLE;
 	}
 
-    public override void ExecutePowerUp()
+    public override void ExecutePowerUp(Colors colorOfAttacker)
 	{
 		player = DeterminePlayerTarget(TargetColor);
 		if (player == null) return;

@@ -17,10 +17,10 @@ public abstract class AbstractPowerUp
 	{
 		Thunder thunder = new Thunder(5, 2);
 		thunder.TargetColor = TargetColor;
-		thunder.ExecutePowerUp();
+		thunder.ExecutePowerUp(Colors.BLACK);
 	}
 
-	public abstract void ExecutePowerUp();
+	public abstract void ExecutePowerUp(Colors colorOfAttacker);
 
 	protected PlayerController DeterminePlayerTarget(Colors colorToCheck) 
 	{

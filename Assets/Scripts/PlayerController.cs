@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour {
             {
                 multiTargetPowerUp.SecondTargetColor = colorPressed;        //second target color gets set to colorPressed
 				StopCoroutine("HoldTimer");
-                multiTargetPowerUp.ExecutePowerUp();
+                multiTargetPowerUp.ExecutePowerUp(_color);
                 CurrentPowerUp = null;
             }
 		}
@@ -116,7 +116,7 @@ public class PlayerController : MonoBehaviour {
 		{
 			CurrentPowerUp.TargetColor = colorPressed;
 			StopCoroutine("HoldTimer");
-			CurrentPowerUp.ExecutePowerUp();
+			CurrentPowerUp.ExecutePowerUp(_color);
 			CurrentPowerUp = null;
 		}
 	}

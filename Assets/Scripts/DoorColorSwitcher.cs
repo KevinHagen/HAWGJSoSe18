@@ -11,7 +11,7 @@ public class DoorColorSwitcher : AbstractMultipleTargetPowerUp
 		SecondTargetColor = Colors.IDLE;
     }
 
-    public override void ExecutePowerUp()
+    public override void ExecutePowerUp(Colors colorOfAttacker)
 	{
 		List<DoorController> targetDoor = DetermineDoorTargets(TargetColor);
 		List<DoorController> secondTargetDoor = DetermineDoorTargets(SecondTargetColor);

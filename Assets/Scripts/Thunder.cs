@@ -11,7 +11,7 @@ public class Thunder : AbstractSingleTargetPowerUp
         this.HoldTime = holdTime;
     }
 
-	public override void ExecutePowerUp()
+	public override void ExecutePowerUp(Colors colorOfAttacker)
 	{
 		player = DeterminePlayerTarget(TargetColor);
 		if(player == null)

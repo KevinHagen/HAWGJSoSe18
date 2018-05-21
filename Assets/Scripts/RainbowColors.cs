@@ -10,8 +10,13 @@ public class RainbowColors : AbstractSingleTargetPowerUp
         this.powerUpDuration = powerUpDuration;
     }
 
-	public override void ExecutePowerUp()
+	public override void ExecutePowerUp(Colors colorOfAttacker)
 	{
+        if(TargetColor==colorOfAttacker)
+        {
+            PunishPlayer();
+            return;
+        }
 		player = DeterminePlayerTarget(TargetColor);
 		if (player == null) return;
 		player.PlayerUI.powerupHolder.SetActive(false);

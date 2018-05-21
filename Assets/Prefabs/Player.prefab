@@ -1626,8 +1626,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1696515573189598}
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 9.002752, y: 9.002752, z: 9.002752}
+  m_LocalPosition: {x: 0.135, y: 0.183, z: -0}
+  m_LocalScale: {x: 4.8301716, y: 4.8301725, z: 4.8301725}
   m_Children: []
   m_Father: {fileID: 4426726289999270}
   m_RootOrder: 9
@@ -1665,7 +1665,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1729268088987600}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.268, y: 109.8687, z: -88.11}
+  m_LocalPosition: {x: 16.49, y: 1.6349841, z: -17.008928}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224242835664133520}
@@ -3939,7 +3939,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!82 &82606224531906132
 AudioSource:
@@ -4146,6 +4146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09fdd07318cae3747887c588ad8555ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 350
 --- !u!114 &114418339043411806
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4357,7 +4358,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3e50a708303b54b87f2369fa27fce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HasKey: 0
   activatePressed: 0
   playerMaterials:
   - {fileID: 2100000, guid: 6d74fd98155310e42a81df0f01e51ce0, type: 2}
@@ -4409,6 +4409,7 @@ MonoBehaviour:
   thunderAnimationPrefab: {fileID: 1411978878900980, guid: 1d9e28cdb6cbb98408ef3e092b2dbfa7,
     type: 2}
   animator: {fileID: 95743101329894916}
+  controlWithKeyboard: 0
 --- !u!114 &114854587606806798
 MonoBehaviour:
   m_ObjectHideFlags: 1
