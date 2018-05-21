@@ -8,9 +8,11 @@ public class Key : MonoBehaviour {
     public Box.Index index;
     public Texture[] textures;
     public float  maxDistanceToWall=3;
-    public float minFlyRange=1, maxFlyRange=3;
-    public float flightHight = 5,flightSpeed=1f;
+    public float minFlyRange=15, maxFlyRange=25;
+    public float flightHight = 10,flightSpeed=2f;
     public GameObject[] parts;
+
+    public Rigidbody rb;
     
 
     private void OnTriggerEnter(Collider other)
@@ -35,8 +37,9 @@ public class Key : MonoBehaviour {
     {
         transform.parent = null;
         List<Vector3> directions = new List<Vector3>();
-        Vector3 destination;
+        Vector3 destination = transform.position ;
         Vector3 currentDestination=new Vector3(0,0,0);
+        Vector3 currentDirection = new Vector3(0, 0, 0);
         RaycastHit hit;
 
         for(int i=0;i<36;i++)
@@ -52,18 +55,19 @@ public class Key : MonoBehaviour {
             }
         }
         if (directions.Count == 0) yield break ;
-        destination = directions[Random.Range(0, directions.Count)]*Random.Range(minFlyRange,maxFlyRange);
-        currentDestination=destination/2;
+        currentDirection = Vector3.Normalize(directions[Random.Range(0, directions.Count)])*Random.Range(minFlyRange,maxFlyRange);
+        currentDestination=transform.position+(currentDirection/2);
         currentDestination.y = flightHight;
+        destination = transform.position + currentDirection;
 
-        while(Vector3.Distance(transform.position,destination)>=0.2)
+        while (Vector3.Distance(transform.position, destination) >= 0.2)
         {
-            transform.position = Vector3.MoveTowards(transform.position,currentDestination,flightSpeed);
-            if(Vector3.Distance(transform.position,currentDestination)<=0.2)
+            transform.position = Vector3.MoveTowards(transform.position, currentDestination, flightSpeed);
+            if (Vector3.Distance(transform.position, currentDestination) <= 0.2)
             {
                 currentDestination = destination;
             }
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.05f);
         }
     }
 }

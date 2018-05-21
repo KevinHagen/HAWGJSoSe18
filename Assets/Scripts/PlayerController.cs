@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour {
     public GameObject thunderAnimationPrefab;
     public Animator animator;
 
+    public bool controlWithKeyboard;
+
     private Colors _color;
 	private bool needsTwoColors;
 	private int holdTimeLeft;
@@ -44,6 +46,7 @@ public class PlayerController : MonoBehaviour {
 		PlayerUI = GetComponentInChildren<PlayerUI>();
 		playerAudio = GetComponent<PlayerAudioManager>();
 		playerAudio.Init();
+        if(controlWithKeyboard)playerNumber = 5;
 	}
 
 	public IEnumerator HoldTimer(int holdTime)
@@ -97,7 +100,7 @@ public class PlayerController : MonoBehaviour {
 		if (needsTwoColors) //power Up needs two inputs/colors
 		{
 			AbstractMultipleTargetPowerUp multiTargetPowerUp = (AbstractMultipleTargetPowerUp)CurrentPowerUp;
-            if (multiTargetPowerUp.TargetColor == Colors.IDLE)  //target color isn't set yes, and gets the value of pressedColor
+            if (multiTargetPowerUp.TargetColor == Colors.IDLE)  //target color isn't set yet, and gets the value of pressedColor
             {
                 multiTargetPowerUp.TargetColor = colorPressed;
             }
