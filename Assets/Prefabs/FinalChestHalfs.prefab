@@ -51,8 +51,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4089169504498650}
-  - component: {fileID: 114970114807811388}
   - component: {fileID: 65460068787465472}
+  - component: {fileID: 114456448829945324}
   m_Layer: 0
   m_Name: FinalChestHalfs
   m_TagString: Untagged
@@ -471,7 +471,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.22, y: 2.0312328, z: 2.062623}
   m_Center: {x: 0, y: 0.51561654, z: 0.5313115}
---- !u!114 &114970114807811388
+--- !u!114 &114456448829945324
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -479,23 +479,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1158322649142046}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a1e49ce051098c479af38fb13efd513, type: 3}
+  m_Script: {fileID: 11500000, guid: 64393a273c506f547985c5ab90fc8dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bottomMaterials:
-  - {fileID: 2100000, guid: 707edd3cc05659043a71b2a97798bc5e, type: 2}
-  - {fileID: 2100000, guid: e31eff02b7e125d4d82f519e81f1861a, type: 2}
-  - {fileID: 2100000, guid: 8d64760f5c0a4ba40bd594816e958509, type: 2}
-  - {fileID: 2100000, guid: 8d64760f5c0a4ba40bd594816e958509, type: 2}
-  topMaterials:
-  - {fileID: 2100000, guid: 2f32fa88d4f7de547a1788bc9324493e, type: 2}
-  - {fileID: 2100000, guid: aafcc47b869130045865235fb34e399c, type: 2}
-  - {fileID: 2100000, guid: 2b099ef5f195e4f4db4d523d4fb51457, type: 2}
-  - {fileID: 2100000, guid: 2b099ef5f195e4f4db4d523d4fb51457, type: 2}
   colorList: 
   bottomParts:
-  - {fileID: 1375826499859720}
   - {fileID: 1720793559711050}
+  - {fileID: 1375826499859720}
   topParts:
-  - {fileID: 1438695317773030}
   - {fileID: 1006698018793952}
+  - {fileID: 1438695317773030}
+  bottomMaterials:
+  - {fileID: 2100000, guid: 8d64760f5c0a4ba40bd594816e958509, type: 2}
+  - {fileID: 2100000, guid: 8d64760f5c0a4ba40bd594816e958509, type: 2}
+  - {fileID: 2100000, guid: e31eff02b7e125d4d82f519e81f1861a, type: 2}
+  - {fileID: 2100000, guid: 707edd3cc05659043a71b2a97798bc5e, type: 2}
+  topMaterials:
+  - {fileID: 2100000, guid: 2b099ef5f195e4f4db4d523d4fb51457, type: 2}
+  - {fileID: 2100000, guid: 2b099ef5f195e4f4db4d523d4fb51457, type: 2}
+  - {fileID: 2100000, guid: aafcc47b869130045865235fb34e399c, type: 2}
+  - {fileID: 2100000, guid: 2f32fa88d4f7de547a1788bc9324493e, type: 2}

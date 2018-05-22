@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FinalDoorBehaviour : MonoBehaviour {
-
-    [Tooltip("order: yellow,red,green,blue")]
-	public Material[] bottomMaterials;
-    [Tooltip("order: yellow,red,green,blue")]
-    public Material[] topMaterials;
+    
     public List<Colors> colorList;
+    [Tooltip("left to right")]
 	public GameObject[] bottomParts;
+    [Tooltip("left to right")]
     public GameObject[] topParts;
 
 	private int locksDone;
@@ -18,19 +16,12 @@ public class FinalDoorBehaviour : MonoBehaviour {
 	private static int playersDoneCounter = 0;
     private List<GameObject> triggerList;
 
-	public void Init()
+	public virtual void Init()
 	{
         triggerList = new List<GameObject>();
 		locksDone = 0;
 		isOpen = false;
 		animController = GetComponent<Animator>();
-		for(int i = 0; i < bottomParts.Length; i++)
-		{
-            //color each part in the right color; if there is only one color in the list, give all parts that color
-            bottomParts[i].GetComponent<MeshRenderer>().material = colorList.Count>1 ? bottomMaterials[(int)colorList[i]] : bottomMaterials[(int)colorList[0]];
-            topParts[i].GetComponent<MeshRenderer>().material = colorList.Count > 1 ? topMaterials[(int)colorList[i]] : topMaterials[(int)colorList[0]];
-			//parts[i].GetComponent<MeshRenderer>().material = partsMaterials[(int)colorList[i]];
-		}
         
 	}
 
