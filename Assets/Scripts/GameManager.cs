@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour {
 	public static GameManager INSTANCE;
 
     public PlayerController[] players;
-	public GameObject[] finalDoorPrefabs;
+	public GameObject[] finalDoorPrefabs,finalChestPrefabs;
 	public List<Transform> finalDoorSpawns;
     public LevelGenerator levelGenerator;
     public DoorManager doorManager;
@@ -82,26 +82,37 @@ public class GameManager : MonoBehaviour {
 				bool isTwoVsTwo = Random.Range(0f, 1f) > 0.5f;
 				if(isTwoVsTwo)
 				{
-					GenerateFinalDoors(2, colorList, finalDoorPrefabs[1]);
-					GenerateFinalDoors(2, colorList, finalDoorPrefabs[1]);
-				}
+                    //GenerateFinalDoors(2, colorList, finalDoorPrefabs[1]);
+                    //GenerateFinalDoors(2, colorList, finalDoorPrefabs[1]);
+                    GenerateFinalDoors(2, colorList, finalChestPrefabs[0]);
+                    GenerateFinalDoors(2, colorList, finalChestPrefabs[0]);
+                }
 				else
 				{
-					GenerateFinalDoors(1, colorList, finalDoorPrefabs[0]);
-					GenerateFinalDoors(3, colorList, finalDoorPrefabs[2]);
-				}
+                    //GenerateFinalDoors(1, colorList, finalDoorPrefabs[0]);
+                    //GenerateFinalDoors(3, colorList, finalDoorPrefabs[2]);
+                    GenerateFinalDoors(1, colorList, finalChestPrefabs[0]);
+                    GenerateFinalDoors(3, colorList, finalChestPrefabs[1]);
+                }
 				break;
 			case 3:
-				GenerateFinalDoors(1, colorList, finalDoorPrefabs[0]);
-                GenerateFinalDoors(1, colorList, finalDoorPrefabs[0]);
-                GenerateFinalDoors(2, colorList, finalDoorPrefabs[1]);
-				break;
+                //GenerateFinalDoors(1, colorList, finalDoorPrefabs[0]);
+                //            GenerateFinalDoors(1, colorList, finalDoorPrefabs[0]);
+                //            GenerateFinalDoors(2, colorList, finalDoorPrefabs[1]);
+                GenerateFinalDoors(1, colorList, finalChestPrefabs[0]);
+                GenerateFinalDoors(1, colorList, finalChestPrefabs[0]);
+                GenerateFinalDoors(2, colorList, finalChestPrefabs[0]);
+                break;
 			case 4:
-				GenerateFinalDoors(1, colorList, finalDoorPrefabs[0]);
-				GenerateFinalDoors(1, colorList, finalDoorPrefabs[0]);
-				GenerateFinalDoors(1, colorList, finalDoorPrefabs[0]);
-				GenerateFinalDoors(1, colorList, finalDoorPrefabs[0]);
-				break;
+                //GenerateFinalDoors(1, colorList, finalDoorPrefabs[0]);
+                //GenerateFinalDoors(1, colorList, finalDoorPrefabs[0]);
+                //GenerateFinalDoors(1, colorList, finalDoorPrefabs[0]);
+                //GenerateFinalDoors(1, colorList, finalDoorPrefabs[0]);
+                GenerateFinalDoors(1, colorList, finalChestPrefabs[0]);
+                GenerateFinalDoors(1, colorList, finalChestPrefabs[0]);
+                GenerateFinalDoors(1, colorList, finalChestPrefabs[0]);
+                GenerateFinalDoors(1, colorList, finalChestPrefabs[0]);
+                break;
 		}
 
 		foreach(FinalDoorBehaviour finalDoor in finalDoors)

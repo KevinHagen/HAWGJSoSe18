@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class FinalDoorBehaviour : MonoBehaviour {
 
-	public Material[] keyHoleMaterials;
-	public List<Colors> colorList;
-	public GameObject[] locks;
+    [Tooltip("order: yellow,red,green,blue")]
+	public Material[] bottomMaterials;
+    [Tooltip("order: yellow,red,green,blue")]
+    public Material[] topMaterials;
+    public List<Colors> colorList;
+	public GameObject[] bottomParts;
+    public GameObject[] topParts;
 
 	private int locksDone;
 	private Animator animController;
@@ -20,10 +24,14 @@ public class FinalDoorBehaviour : MonoBehaviour {
 		locksDone = 0;
 		isOpen = false;
 		animController = GetComponent<Animator>();
-		for(int i = 0; i < locks.Length; i++)
+		for(int i = 0; i < bottomParts.Length; i++)
 		{
-			locks[i].GetComponent<MeshRenderer>().material = keyHoleMaterials[(int)colorList[i]];
+            //color each part in the right color; if there is only one color in the list, give all parts that color
+            bottomParts[i].GetComponent<MeshRenderer>().material = colorList.Count>1 ? bottomMaterials[(int)colorList[i]] : bottomMaterials[(int)colorList[0]];
+            topParts[i].GetComponent<MeshRenderer>().material = colorList.Count > 1 ? topMaterials[(int)colorList[i]] : topMaterials[(int)colorList[0]];
+			//parts[i].GetComponent<MeshRenderer>().material = partsMaterials[(int)colorList[i]];
 		}
+        
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -63,7 +71,8 @@ public class FinalDoorBehaviour : MonoBehaviour {
 
     private IEnumerator endGame()
     {
-        animController.SetTrigger("openDoor");
+        //animController.SetTrigger("openDoor");
+        AudioManager.INSTANCE.PlayWinSound();
         foreach (GameObject trigger in triggerList)
         {
             PlayerController player = trigger.gameObject.GetComponent<PlayerController>();
