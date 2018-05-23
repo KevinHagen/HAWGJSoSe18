@@ -9,10 +9,19 @@ ModelImporter:
     100002: pasted__pasted__obj_Low_box
     100004: pasted__pasted__obj_Low_coin
     100006: pasted__pasted__obj_Low_lid
+    100008: Camera
+    100010: group1
+    100012: Lamp
+    100014: pasted__group
     400000: //RootNode
     400002: pasted__pasted__obj_Low_box
     400004: pasted__pasted__obj_Low_coin
     400006: pasted__pasted__obj_Low_lid
+    400008: Camera
+    400010: group1
+    400012: Lamp
+    400014: pasted__group
+    2000000: Camera
     2100000: mat_LowTreasureChest_Frugality
     2300000: pasted__pasted__obj_Low_box
     2300002: pasted__pasted__obj_Low_coin
@@ -23,6 +32,7 @@ ModelImporter:
     4300000: pasted__pasted__obj_Low_box
     4300002: pasted__pasted__obj_Low_coin
     4300004: pasted__pasted__obj_Low_lid
+    10800000: Lamp
   externalObjects: {}
   materials:
     importMaterials: 1
