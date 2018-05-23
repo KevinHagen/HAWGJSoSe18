@@ -11,7 +11,7 @@ SubstanceImporter:
     prototypeName: Concrete_01
     shaderName: 
     shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-    shaderKeywords: _EMISSION _METALLICGLOSSMAP _NORMALMAP
+    shaderKeywords: _EMISSION
     renderQueue: -1
     lightmapFlags: 1
     inputs:
@@ -75,7 +75,7 @@ SubstanceImporter:
       texEnvs:
       - _BumpMap:
           texture: {instanceID: 0}
-          scale: {x: 16, y: 1}
+          scale: {x: 16, y: 16}
           offset: {x: 0, y: 0}
       - _DetailAlbedoMap:
           texture: {instanceID: 0}
@@ -91,19 +91,19 @@ SubstanceImporter:
           offset: {x: 0, y: 0}
       - _EmissionMap:
           texture: {instanceID: 0}
-          scale: {x: 16, y: 16}
+          scale: {x: 1, y: 1}
           offset: {x: 0, y: 0}
       - _MainTex:
-          texture: {instanceID: 0}
-          scale: {x: 16, y: 16}
+          texture: {fileID: 2800000, guid: aad02e87a53a2d040a2d58d0f94e5f02, type: 3}
+          scale: {x: 1, y: 1}
           offset: {x: 0, y: 0}
       - _MetallicGlossMap:
           texture: {instanceID: 0}
-          scale: {x: 16, y: 1}
+          scale: {x: 16, y: 16}
           offset: {x: 0, y: 0}
       - _OcclusionMap:
           texture: {instanceID: 0}
-          scale: {x: 16, y: 1}
+          scale: {x: 16, y: 16}
           offset: {x: 0, y: 0}
       - _ParallaxMap:
           texture: {instanceID: 0}
@@ -153,9 +153,6 @@ SubstanceImporter:
       aniso: 1
       wrapMode: 0
     textureAssignments:
-    - shaderProp: _MainTex
-      material: {instanceID: 0}
-      baseUID: 3078239351
     - shaderProp: _BumpMap
       material: {instanceID: 0}
       baseUID: 3078239349
