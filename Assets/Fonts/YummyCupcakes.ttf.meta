@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 88b33e4622c0f0a4e96a3eb6faa09edc
+timeCreated: 1527090839
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: YummyCupcakes
+  fontNames:
+  - YummyCupcakes
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
