@@ -8,12 +8,16 @@ public class Key : MonoBehaviour {
     public Box.Index index;
     public Texture[] textures;
     public float  maxDistanceToWall=3;
-    public float minFlyRange=15, maxFlyRange=25;
-    public float flightHight = 10,flightSpeed=2f;
+    //public float minFlyRange=15, maxFlyRange=25;
+    //public float flightHight = 10,flightSpeed=2f;
+    public float minFlyRange , maxFlyRange ;
+    public float flightHight , flightSpeed ;
+    public float forceMultiply ;
     public GameObject[] parts;
 
     public Rigidbody rb;
-    
+
+   
 
     private void OnTriggerEnter(Collider other)
     {
@@ -56,18 +60,20 @@ public class Key : MonoBehaviour {
         }
         if (directions.Count == 0) yield break ;
         currentDirection = Vector3.Normalize(directions[Random.Range(0, directions.Count)])*Random.Range(minFlyRange,maxFlyRange);
-        currentDestination=transform.position+(currentDirection/2);
-        currentDestination.y = flightHight;
+        currentDirection.y = flightHight;
+        currentDestination=transform.position+new Vector3(currentDirection.x/2,currentDirection.y/2,currentDirection.z);
         destination = transform.position + currentDirection;
 
-        while (Vector3.Distance(transform.position, destination) >= 0.2)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, currentDestination, flightSpeed);
-            if (Vector3.Distance(transform.position, currentDestination) <= 0.2)
-            {
-                currentDestination = destination;
-            }
-            yield return new WaitForSeconds(0.05f);
-        }
+        rb.AddForce(currentDirection);
+
+        //while (Vector3.Distance(transform.position, destination) >= 0.2)
+        //{
+        //    transform.position = Vector3.MoveTowards(transform.position, currentDestination, flightSpeed);
+        //    if (Vector3.Distance(transform.position, currentDestination) <= 0.2)
+        //    {
+        //        currentDestination = destination;
+        //    }
+        //    yield return new WaitForSeconds(0.05f);
+        //}
     }
 }
