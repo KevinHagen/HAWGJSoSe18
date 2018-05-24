@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: afda8b267a80caa4d9538a995768baf8
+timeCreated: 1527090839
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Lazy Spring Day Demo
+  fontNames:
+  - Lazy Spring Day Demo
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

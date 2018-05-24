@@ -216,7 +216,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f989a57a1175cfb4f917c9a00384cc11, type: 2}
+  - {fileID: 2100000, guid: 801a93b6c0737df43b0d93a8188ffe87, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -250,7 +250,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f989a57a1175cfb4f917c9a00384cc11, type: 2}
+  - {fileID: 2100000, guid: 801a93b6c0737df43b0d93a8188ffe87, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -284,7 +284,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f989a57a1175cfb4f917c9a00384cc11, type: 2}
+  - {fileID: 2100000, guid: 801a93b6c0737df43b0d93a8188ffe87, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -375,8 +375,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275df00b10714f94a926d724af4d9559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: 3
-  index: 7
+  color: 1
+  index: 5
   textures: []
   maxDistanceToWall: 3
   minFlyRange: 3
