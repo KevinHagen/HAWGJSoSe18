@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour {
 
     public bool controlWithKeyboard;
 
+    public int startPosition { get; set; }
     private Colors _color;
 	private bool needsTwoColors;
 	private int holdTimeLeft;

@@ -119,7 +119,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1721768645338014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.687653, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4702425123555224}
@@ -379,9 +379,9 @@ MonoBehaviour:
   index: 5
   textures: []
   maxDistanceToWall: 3
-  minFlyRange: 3
-  maxFlyRange: 5
-  flightHight: 5
+  minFlyRange: 1
+  maxFlyRange: 1
+  flightHight: 450
   flightSpeed: 0.5
   forceMultiply: 2
   parts:
@@ -389,6 +389,7 @@ MonoBehaviour:
   - {fileID: 1150444595203084}
   - {fileID: 1850626472430452}
   rb: {fileID: 54189880588806656}
+  sphereCollider: {fileID: 135912039423870828}
 --- !u!135 &135225459116229584
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -79,6 +79,7 @@ public class LevelGenerator : MonoBehaviour {
             }while(startPositionsDictionary[startPositions[randPos]]);
             startPositionsDictionary[startPositions[randPos]] = true;
             players[i].transform.position = startPositions[randPos].position;
+            _currentPlayer.startPosition = randPos;
             
             //get random Color for player
             do

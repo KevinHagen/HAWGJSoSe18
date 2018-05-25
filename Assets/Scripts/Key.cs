@@ -16,7 +16,9 @@ public class Key : MonoBehaviour {
     public GameObject[] parts;
 
     public Rigidbody rb;
+    public SphereCollider sphereCollider;
 
+    private bool isStarting;
    
 
     private void OnTriggerEnter(Collider other)
@@ -29,11 +31,18 @@ public class Key : MonoBehaviour {
                 playerController.HasKey = true;
                 playerController.PlayerUI.SetKeyColor(color);
                 playerController.currentKey = this;
+                gameObject.transform.rotation = Quaternion.Euler(0, 0,0);
                 gameObject.transform.parent = playerController.transform;
                 other.GetComponent<PlayerAudioManager>().PlayPickUpKeySound();
                 gameObject.SetActive(false);
+                sphereCollider.enabled = false;
             }
             
+        }
+
+        if (other.tag == "Floor" && !isStarting)
+        {
+            sphereCollider.enabled = true;
         }
     }
 
@@ -60,9 +69,18 @@ public class Key : MonoBehaviour {
         }
         if (directions.Count == 0) yield break ;
         currentDirection = Vector3.Normalize(directions[Random.Range(0, directions.Count)])*Random.Range(minFlyRange,maxFlyRange);
-        currentDirection.y = flightHight;
+        //currentDirection.y = flightHight;
         currentDestination=transform.position+new Vector3(currentDirection.x/2,currentDirection.y/2,currentDirection.z);
         destination = transform.position + currentDirection;
+
+        //sphereCollider.enabled = false;
+        rb.AddForce(0,flightHight,0);
+        isStarting = true;
+        yield return new WaitForSeconds(1f);
+        isStarting = false;
+
+        while(rb.velocity.y>0)
+        {}
 
         rb.AddForce(currentDirection);
 

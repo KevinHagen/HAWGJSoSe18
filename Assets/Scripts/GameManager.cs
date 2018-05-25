@@ -13,41 +13,12 @@ public class GameManager : MonoBehaviour {
 	public List<Transform> finalDoorSpawns;
     public LevelGenerator levelGenerator;
     public DoorManager doorManager;
-    public GameObject winScreen;
-    public Text winText;
+    public GameOverManager gameOverManager;
     public bool gameOver {  get; private set; }
 
 	private FinalDoorBehaviour[] finalDoors;
 	private int finalDoorIndex;
 	private Colors[] playerColors = { Colors.YELLOW, Colors.RED, Colors.GREEN, Colors.BLUE };
-
-    private void Update()
-    {
-        if(gameOver)
-        {
-            if (Input.GetButtonDown("Green1"))
-            {
-                ReturnToMainMenu();
-            }
-        }
-    }
-
-    public  void GameOver(List<Colors> colorList)
-    {
-        gameOver = true;
-        winScreen.SetActive(true);
-        winText.text="";
-        foreach(Colors color in colorList)
-        {
-            winText.text += color.ToString().ToUpper();
-            winText.text += " wins \n";
-        }
-    }
-
-    public void ReturnToMainMenu()
-	{
-		SceneManager.LoadScene(0);
-	}
 
 	private void Awake()
 	{
@@ -82,32 +53,21 @@ public class GameManager : MonoBehaviour {
 				bool isTwoVsTwo = Random.Range(0f, 1f) > 0.5f;
 				if(isTwoVsTwo)
 				{
-                    //GenerateFinalDoors(2, colorList, finalDoorPrefabs[1]);
-                    //GenerateFinalDoors(2, colorList, finalDoorPrefabs[1]);
                     GenerateFinalDoors(2, colorList, finalChestPrefabs[0]);
                     GenerateFinalDoors(2, colorList, finalChestPrefabs[0]);
                 }
 				else
 				{
-                    //GenerateFinalDoors(1, colorList, finalDoorPrefabs[0]);
-                    //GenerateFinalDoors(3, colorList, finalDoorPrefabs[2]);
                     GenerateFinalDoors(1, colorList, finalChestPrefabs[0]);
                     GenerateFinalDoors(3, colorList, finalChestPrefabs[1]);
                 }
 				break;
 			case 3:
-                //GenerateFinalDoors(1, colorList, finalDoorPrefabs[0]);
-                //            GenerateFinalDoors(1, colorList, finalDoorPrefabs[0]);
-                //            GenerateFinalDoors(2, colorList, finalDoorPrefabs[1]);
                 GenerateFinalDoors(1, colorList, finalChestPrefabs[0]);
                 GenerateFinalDoors(1, colorList, finalChestPrefabs[0]);
                 GenerateFinalDoors(2, colorList, finalChestPrefabs[0]);
                 break;
 			case 4:
-                //GenerateFinalDoors(1, colorList, finalDoorPrefabs[0]);
-                //GenerateFinalDoors(1, colorList, finalDoorPrefabs[0]);
-                //GenerateFinalDoors(1, colorList, finalDoorPrefabs[0]);
-                //GenerateFinalDoors(1, colorList, finalDoorPrefabs[0]);
                 GenerateFinalDoors(1, colorList, finalChestPrefabs[0]);
                 GenerateFinalDoors(1, colorList, finalChestPrefabs[0]);
                 GenerateFinalDoors(1, colorList, finalChestPrefabs[0]);
@@ -135,4 +95,10 @@ public class GameManager : MonoBehaviour {
 		}
 		finalDoorIndex++;
 	}
+
+    public void GameOver(List<Colors> colorList)
+    {
+        gameOver = true;
+        gameOverManager.GameOver(colorList, players);
+    }
 }
