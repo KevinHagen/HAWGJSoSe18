@@ -42,7 +42,9 @@ public class PlayerController : MonoBehaviour {
 	private string HORIZONTAL_AXIS = "Horizontal";
 	private string VERTICAL_AXIS = "Vertical";
 
-	public void Init()
+    private Colors _fallbackColor;  //BLIND_FIX fallback in case player gets stuck as black 
+
+    public void Init()
 	{
 		PlayerUI = GetComponentInChildren<PlayerUI>();
 		playerAudio = GetComponent<PlayerAudioManager>();
@@ -79,9 +81,17 @@ public class PlayerController : MonoBehaviour {
 	{
         if (GameManager.INSTANCE.gameOver) return;
         //update Player UI
-		PlayerUI.UpdateUI(HasKey, CurrentPowerUp != null); 
+		PlayerUI.UpdateUI(HasKey, CurrentPowerUp != null);
         //check if player got stunned by Thunder
-		if (IsStunned) return;
+        if (IsStunned)
+        {
+            if(CurrentPowerUp!=null)
+            {
+                StopCoroutine("HoldTimer");
+                CurrentPowerUp = null;
+            }
+            return;
+        }
 
         //detect shoulder-buttons and set bool to be used in Box.cs
 		activatePressed = false;
@@ -167,6 +177,8 @@ public class PlayerController : MonoBehaviour {
 		}
         set
         {
+            if(_color!=Colors.BLACK&&_color!=Colors.RAINBOW&&_color!=Colors.IDLE) _fallbackColor = _color;    //BLIND_FIX fallback in case player gets stuck as black 
+
             _color = value;
             gameObject.layer = LayerMask.NameToLayer("Default");
             //set different textures for color here
@@ -175,6 +187,7 @@ public class PlayerController : MonoBehaviour {
 
             if (_color != Colors.IDLE)
 			{
+                StopCoroutine("FallbackStun");
                 GetComponent<MeshRenderer>().material = playerMaterials[(int)_color];
                 playerBody.GetComponent<MeshRenderer>().material = bodyMaterials[(int)_color];
                 playerLatch.GetComponent<MeshRenderer>().material = latchMaterials[(int)_color];
@@ -202,6 +215,9 @@ public class PlayerController : MonoBehaviour {
                         isRainbow = true;
                         StartCoroutine("StartRainbowColors");
 						break;
+                    case Colors.BLACK:  //BLIND_FIX fallback in case player gets stuck as black 
+                        StartCoroutine("FallbackStun");
+                        break;
                 }
  			}
         }
@@ -218,5 +234,13 @@ public class PlayerController : MonoBehaviour {
             yield return new WaitForSeconds(0.5f);
         }
         
+    }
+
+    //BLIND_FIX fallback in case player gets stuck as black 
+    private IEnumerator FallbackStun()
+    {
+        yield return new WaitForSeconds(5f);
+        IsStunned = false;
+        this.Color = _fallbackColor;
     }
 }

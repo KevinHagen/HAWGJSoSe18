@@ -63,7 +63,7 @@ public class GameOverManager : MonoBehaviour {
         {
             if(_colorList.Contains(_players[i].Color))
             {
-                _playerAnimators[i].SetTrigger("win");
+                _playerAnimators[_players[i].startPosition].SetTrigger("win");
                 yield return new WaitForSeconds(timeBetweenWinners);
             }
             
@@ -78,7 +78,7 @@ public class GameOverManager : MonoBehaviour {
         {
             if (!_colorList.Contains(_players[i].Color))
             {
-                _playerAnimators[i].SetTrigger("lose");
+                _playerAnimators[_players[i].startPosition].SetTrigger("lose");
             }
         }
     }
