@@ -50,17 +50,17 @@ public class GameManager : MonoBehaviour {
 		switch(amountOfDoors)
 		{
 			case 2:
-				bool isTwoVsTwo = Random.Range(0f, 1f) > 0.5f;
-				if(isTwoVsTwo)
-				{
+				//bool isTwoVsTwo = Random.Range(0f, 1f) > 0.5f;
+				//if(isTwoVsTwo)
+				//{
                     GenerateFinalDoors(2, colorList, finalChestPrefabs[0]);
                     GenerateFinalDoors(2, colorList, finalChestPrefabs[0]);
-                }
-				else
-				{
-                    GenerateFinalDoors(1, colorList, finalChestPrefabs[0]);
-                    GenerateFinalDoors(3, colorList, finalChestPrefabs[1]);
-                }
+    //            }
+				//else
+				//{
+    //                GenerateFinalDoors(1, colorList, finalChestPrefabs[0]);
+    //                GenerateFinalDoors(3, colorList, finalChestPrefabs[1]);
+    //            }
 				break;
 			case 3:
                 GenerateFinalDoors(1, colorList, finalChestPrefabs[0]);
